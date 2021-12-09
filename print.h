@@ -2,7 +2,7 @@
 
 #include "board.h"
 
-void print()
+void print() //this prints the board with two nested for loops
 {
     int i, j;
 

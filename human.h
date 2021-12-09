@@ -4,10 +4,12 @@
 
 #include "legal.h"
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cin;
 
-coordinates human(char turn)
-{
+coordinates human(char turn) // this takes coordinates, if they are not legal
+{                            // the user is warned and asked to enter again
     coordinates coor;
     do
     {

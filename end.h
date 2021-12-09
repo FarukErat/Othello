@@ -4,6 +4,7 @@
 
 bool end()
 {
+	// this checks if there is any legal move for both sides
 	if (possible('B'))
 		return true;
 

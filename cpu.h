@@ -1,5 +1,4 @@
-#ifndef CPU_H
-#define CPU_H
+#pragma once
 
 #include "coordinates.h"
 #include "legal.h"
@@ -38,5 +37,3 @@ coordinates cpu(char turn)
 
 	return coor;
 }
-
-#endif // !CPU_H

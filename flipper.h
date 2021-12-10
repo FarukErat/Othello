@@ -27,8 +27,8 @@ void flipper(int col, int row, char turn)
             i = col - 1 + m * dirs[dir][0]; //multiplying by 'm'
             j = row - 1 + m * dirs[dir][1]; //to move along the directions
 
-            if ((board[i][j] == '-') || (board[col - 1 + dirs[dir][0]][row - 1 + dirs[dir][1]] == turn))
-                // if the calculated square is empty ('-'), break
+            if ((board[i][j] == empty) || (board[col - 1 + dirs[dir][0]][row - 1 + dirs[dir][1]] == turn))
+                // if the calculated square is empty, break
                 // or
                 // if the square which is by the chosen square
                 // is in the same color as players, break

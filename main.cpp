@@ -35,7 +35,7 @@ int main()
     {
         for (col = 0; col < 8; col++)
         {
-            board[col][row] = '-';
+            board[col][row] = empty;
         }
     }
 

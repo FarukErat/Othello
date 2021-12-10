@@ -22,7 +22,7 @@ bool legal(int col, int row, char turn)
 	if (col < 1 || col > 8 || row < 1 || row > 8) // if  the square is out of the board, return false
 		return false;
 
-	if (board[col - 1][row - 1] != '-') // if the square is not empty, return false
+	if (board[col - 1][row - 1] != empty) // if the square is not empty, return false
 		return false;
 
 	for (dir = 0; dir < 8; dir++) // for each directions
@@ -35,7 +35,7 @@ bool legal(int col, int row, char turn)
 			i = col - 1 + m * dirs[dir][0]; //k and l are assigned the number along the legal direction
 			j = row - 1 + m * dirs[dir][1];
 
-			if (board[i][j] == '-') // if an empty square is found, break
+			if (board[i][j] == empty) // if an empty square is found, break
 				break;
 
 			if (board[i][j] != turn) // if the square is not in the same color as the players

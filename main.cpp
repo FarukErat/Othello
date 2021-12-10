@@ -91,7 +91,7 @@ int main()
 
         if (choice == 1 && turn != side)
         {
-            sleep(1); // to get cpu to wait
+            sleep(1); // to get cpu to wait one second
             coor = cpu(turn);
         }
 

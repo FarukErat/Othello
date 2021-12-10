@@ -1,3 +1,3 @@
 # Othello
 A Simple Othello Game
-(NOT FINISHED YET)
+This game is playable against cpu. However, cpu makes completely random moves.

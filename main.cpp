@@ -1,5 +1,5 @@
 #include <iostream>
-#include <time.h>   //to generate random numbers for cpu response
+#include <ctime>   //to generate random numbers for cpu response
 #include <unistd.h> //to slow down the cpu response to make it more realistic
 #include <conio.h>  //for getch to keep the terminal still to see the result
 

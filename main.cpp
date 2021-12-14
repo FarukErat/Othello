@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ctime>   //to generate random numbers for cpu response
+#include <time.h>   //to generate random numbers for cpu response
 #include <unistd.h> //to slow down the cpu response to make it more realistic
 #include <conio.h>  //for getch to keep the terminal still to see the result
 
@@ -29,7 +29,7 @@ int main()
     int choice;
 
     char side;
-    char turn = 'B';
+    char turn = black;
 
     for (row = 0; row < 8; row++) // creating empty squares of the board
     {
@@ -39,10 +39,10 @@ int main()
         }
     }
 
-    board[3][3] = 'W'; // adding the initial squares
-    board[4][4] = 'W';
-    board[3][4] = 'B';
-    board[4][3] = 'B';
+    board[3][3] = white; // adding the initial squares
+    board[4][4] = white;
+    board[3][4] = black;
+    board[4][3] = black;
 
     cout << "Welcome to Othello Game\n\n"; // greeting the users
     cout << "Enter your choice\n\n";
@@ -70,10 +70,10 @@ int main()
         }
 
         if (side == 'b')
-            side = 'B';
+            side = black;
 
         if (side == 'w')
-            side = 'W';
+            side = white;
     }
 
     cout << " "; // printing the initial board
@@ -81,7 +81,7 @@ int main()
 
     do
     {
-        if (turn == 'B') // to indicate which side is playing
+        if (turn == black) // to indicate which side is playing
             cout << "\nBlack\n";
         else
             cout << "\nWhite\n";
@@ -91,7 +91,7 @@ int main()
 
         if (choice == 1 && turn != side)
         {
-            sleep(1); // to get cpu to wait one second
+            sleep(1); // to get cpu to wait
             coor = cpu(turn);
         }
 
@@ -113,50 +113,45 @@ int main()
 
         print();
 
-        if (turn == 'B')
-            turn = 'W';
+        if (turn == black)
+            turn = white;
         else
-            turn = 'B';
+            turn = black;
 
         if (possible(turn) == 0) // to change the side in case that
         {                        // there is no legal moves
-            if (turn == 'B')
-                turn = 'W';
+            if (turn == black)
+                turn = white;
             else
-                turn = 'B';
+                turn = black;
         }
 
     } while (end());
 
-    int black = 0; // to count how many black and white squares there are
-    int white = 0;
+    int blackDisks = 0; // to count how many black and white squares there are
+    int whiteDisks = 0;
 
     for (i = 0; i < 8; i++)
     {
         for (j = 0; j < 8; j++)
         {
-            switch (board[i][j])
-            {
-            case 'B':
-                black++;
-                break;
+            if (board[i][j] == black)
+                blackDisks++;
 
-            case 'W':
-                white++;
-                break;
-            }
+            if (board[i][j] == white)
+                whiteDisks++;
         }
     }
     cout << "\n\nG A M E   O V E R\n\n";
 
     // print the final result
 
-    if (black == white)
+    if (blackDisks == whiteDisks)
         cout << "DRAW";
 
     else
     {
-        if (black > white)
+        if (blackDisks > whiteDisks)
         {
             cout << "Player black won." << endl;
         }
@@ -167,8 +162,8 @@ int main()
         }
 
         cout << "SCORE" << endl
-             << "Black: " << black << endl
-             << "White: " << white;
+             << "Black: " << blackDisks << endl
+             << "White: " << whiteDisks;
     }
 
     cout << "\n\nPress any key to quit";

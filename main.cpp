@@ -1,17 +1,9 @@
 #include <iostream>
 #include <time.h>   //to generate random numbers for cpu response
-#include <unistd.h> //to slow down the cpu response to make it more realistic
+#include <windows.h> //to slow down the cpu response to make it more realistic
 #include <conio.h>  //for getch to keep the terminal still to see the result
 
-#include "board.h"
-#include "coordinates.h"
-#include "cpu.h"
-#include "end.h"
-#include "flipper.h"
-#include "human.h"
-#include "legal.h"
-#include "possible.h"
-#include "print.h"
+#include "libraries.h"
 
 using std::cin;
 using std::cout;
@@ -21,11 +13,8 @@ int main()
 {
     coordinates coor;
 
-    int i;
-    int j;
-    int k;
-    int col;
-    int row;
+    int i, j, k;
+    int col, row;
     int choice;
 
     char side;
@@ -44,7 +33,7 @@ int main()
     board[3][4] = black;
     board[4][3] = black;
 
-    cout << "Welcome to Othello Game\n\n"; // greeting the users
+    cout << "\nWelcome to Othello Game\n\n"; // greeting the users
     cout << "Enter your choice\n\n";
     cout << "1 for human vs cpu\n";
     cout << "2 for human vs human\n";
@@ -91,7 +80,7 @@ int main()
 
         if (choice == 1 && turn != side)
         {
-            sleep(1); // to get cpu to wait
+            Sleep(1000); // to get cpu to wait for 1000 miliseconds (1 second)
             coor = cpu(turn);
         }
 

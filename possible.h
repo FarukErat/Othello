@@ -1,5 +1,7 @@
 #pragma once
 
+#include "legal.h"
+
 bool possible(char turn)
 {
 	int i;

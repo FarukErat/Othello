@@ -6,6 +6,9 @@ void print() //this prints the board with two nested for loops
 {
     int i, j;
 
+    system("cls");
+    
+    cout << " ";
     for (i = 1; i < 9; i++)
         cout << " " << i;
 

@@ -10,8 +10,10 @@ coordinates cpu(char turn)
 	int i;
 	int j;
 	int random;
-	int count = 0;
-	int legalMoves[2][60]; // to keep the legal moves
+	int count1 = 0;
+	int count2 = 0;
+	int legalMoves[2][56]; // to keep the legal moves
+	int cornerMoves[2][4];
 
 	for (j = 1; j <= 8; j++) // tries all the squares on the board
 	{						 // if they are legal
@@ -19,18 +21,39 @@ coordinates cpu(char turn)
 		{
 			if (legal(i, j, turn))
 			{ // if they are legal, they are saved
-				legalMoves[0][count] = i;
-				legalMoves[1][count] = j;
-				count++;
+				if ((i == 2 && j == 2 && board[0][0] == empty) || (i == 7 && j == 2 && board[7][0] == empty) || (i == 7 && j == 7 && board[7][7] == empty) || (i == 2 && j == 7 && board[0][7] == empty))
+				{
+					cornerMoves[0][count1] = i;
+					cornerMoves[1][count1] = j;
+					count1++;
+				}
+
+				else
+				{
+					legalMoves[0][count2] = i;
+					legalMoves[1][count2] = j;
+					count2++;
+				}
 			}
 		}
 	}
 
 	srand(time(NULL));
-	random = rand() % count; // generates random numbers [0, count)
+	if (count2 > 0)
+	{
+		random = rand() % count2; // generates random numbers [0, count)
 
-	coor.col = legalMoves[0][random];
-	coor.row = legalMoves[1][random];
+		coor.col = legalMoves[0][random];
+		coor.row = legalMoves[1][random];
+	}
+
+	else
+	{
+		random = rand() % count1; // generates random numbers [0, count)
+
+		coor.col = cornerMoves[0][random];
+		coor.row = cornerMoves[1][random];
+	}
 
 	std::cout << "col: " << coor.col << std::endl; // prints cpu's moves
 	std::cout << "row: " << coor.row << std::endl; // for a better game exp

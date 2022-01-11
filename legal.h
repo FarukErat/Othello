@@ -6,10 +6,7 @@ char board[8][8];
 
 bool legal(int col, int row, char turn)
 {
-    int i;
-	int j;
-	int m;
-	int dir;
+    int i, j, m;
 
 	int dirs[8][2] = { // declaring deltas for each 8 diretions on the board
         {-1, -1}/*left and up*/,   {0, -1}/*up*/,   {1, -1},/*up and right*/
@@ -25,15 +22,15 @@ bool legal(int col, int row, char turn)
 	if (board[col - 1][row - 1] != empty) // if the square is not empty, return false
 		return false;
 
-	for (dir = 0; dir < 8; dir++) // for each directions
+	for (auto dir : dirs) // for each directions
 	{
-		i = col - 1 + dirs[dir][0]; //initializition of i and j before the for loop
-		j = row - 1 + dirs[dir][1]; //to check the conditions in the loop
+		i = col - 1 + dir[0]; //initializition of i and j before the for loop
+		j = row - 1 + dir[1]; //to check the conditions in the loop
 
 		for (m = 1; (i >= 0 && i <= 7) && (j >= 0 && j <= 7); m++)
 		{
-			i = col - 1 + m * dirs[dir][0]; //k and l are assigned the number along the legal direction
-			j = row - 1 + m * dirs[dir][1];
+			i = col - 1 + m * dir[0]; //k and l are assigned the number along the legal direction
+			j = row - 1 + m * dir[1];
 
 			if (board[i][j] == empty) // if an empty square is found, break
 				break;

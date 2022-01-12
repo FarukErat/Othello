@@ -2,13 +2,12 @@
 
 #include "table.h"
 /**
- * @brief: prints the board.
- *
- * @param none
+ * @param nothing
  * @return coordinates of the square the user choose
  */
-coor Table::userPlays() // this takes coordinates, if they are not legal
-{                            // the user is warned and asked to enter again
+coor Table::userPlays()
+// this takes coordinates, if they are not legal the user is warned and asked to enter again
+{
     coor c;
     bool flag;
 

@@ -1,8 +1,12 @@
 #pragma once
 
 #include "table.h"
-
+/**
+ * @param none
+ * @return boolean
+ */
 bool Table::hasTileToFlip()
+// checks if a side has tile to flip
 {
     coor c;
     // this checks if there is any legal move for only one side

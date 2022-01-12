@@ -2,12 +2,11 @@
 
 #include "table.h"
 /**
- * @brief: settings menu.
- *
- * @param none
+ * @param nothing
  * @return nothing
  */
 void Table::settings()
+// sets the menu options
 {
     cout << endl // greeting the users
          << "Welcome to Othello Game" << endl
@@ -20,14 +19,14 @@ void Table::settings()
          << endl;
 
     cin >> this->choice;
-
-    if (this->choice != 1 && this->choice != 2 && this->choice != 3) // checking the response
+    // checking the choice
+    if (this->choice != 1 && this->choice != 2 && this->choice != 3)
     {
         cout << "Invalid choice!!!";
         exit(EXIT_FAILURE);
     }
-
-    if (this->choice == 1) // in case of 1, we let the user choose the side
+    // in case of 1, we let the user choose the side
+    if (this->choice == 1)
     {
         cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
         cin >> this->userSide;

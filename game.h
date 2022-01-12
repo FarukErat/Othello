@@ -1,11 +1,15 @@
 #pragma once
 
 #include "table.h"
-
+/**
+ * @param none
+ * @return nothing
+ */
 void Table::game()
+// the game is processed
 {
-    settings();
-    printBoard();
+    settings(); // offering some game modes to the user
+    printBoard(); // printing the initial board
     coor c;
     int row, col;
     while(true)
@@ -14,14 +18,14 @@ void Table::game()
             cout << "\nBlack\n";
         else
             cout << "\nWhite\n";
-
+        // getting coordinates from the players
         if (this->choice == 1)
+        {
             if (this->turn == this->userSide)
-            {
                 c = userPlays();
-            }
             else
                 c = cpuPlays();
+        }
 
         if (this->choice == 2)
             c = userPlays();
@@ -35,19 +39,21 @@ void Table::game()
         cout << "\n ";
 
         printBoard();
-
+        
+        // switching the side when a move is done
         if (this->turn == BLACK)
             this->turn = WHITE;
         else
             this->turn = BLACK;
-
-        if (!hasTileToFlip()) // to change the side in case that
-        {                     // there is no legal moves
+        // in case there is no legal move for the next user the side is switched
+        if (!hasTileToFlip())
+        {
             if (this->turn == BLACK)
                 this->turn = WHITE;
             else
                 this->turn = BLACK;
             if (!hasTileToFlip())
+            // even after switching, if there is no legal move, game is over
                 break;
         }
     }
@@ -75,14 +81,10 @@ void Table::game()
     else
     {
         if (blackDisks > whiteDisks)
-        {
             cout << "Player black won." << endl;
-        }
 
         else
-        {
             cout << "Player white won." << endl;
-        }
 
         cout << "SCORE" << endl
              << "Black: " << blackDisks << endl

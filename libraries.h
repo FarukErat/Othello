@@ -1,5 +1,5 @@
 #pragma once
-// for a better visualization, the source files are included in this file
+// for a better visualization, the source files are included in
 #include "is_legal.h"
 #include "is_on_board.h"
 #include "has_tile_to_flip.h"

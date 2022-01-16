@@ -17,6 +17,7 @@ The player with the most pieces on the board at the end of the game wins.
 
 Here are some links to check out the rules better.
 https://en.wikipedia.org/wiki/Reversi#Rules
+
 https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english
 
 

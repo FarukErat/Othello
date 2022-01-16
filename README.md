@@ -23,11 +23,13 @@ https://www.worldothello.org/about/about-othello/othello-rules/official-rules/en
 
 
 ------------------------------BUGS------------------------------
+
 1) It ends the game, even though the game is not over. (generally)
 2) The turn does not change, even when supposed to. (a bit often)
 3) It flips some illegal tiles. (rarely)
 
 
 -----------------------------NEEDED-----------------------------
+
 The biggest drawback of this program is GUI.
 It is played over terminal.

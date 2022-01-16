@@ -3,6 +3,7 @@
 #define BLACK 'B'
 #define WHITE 'W'
 #define EMPTY '-'
+#define SIZE 8
 
 using namespace std;
 
@@ -25,7 +26,7 @@ int moveDirs[8][2] =
 class Table
 {
 public:
-    char board[8][8];
+    char board[SIZE][SIZE];
     int choice;
     char turn;
     char userSide;
@@ -51,15 +52,15 @@ Table::Table()
     this->turn = BLACK;
 
     // creating a blank board
-    for (int row = 0; row < 8; row++)
-        for (int col = 0; col < 8; col++)
+    for (int row = 0; row < SIZE; row++)
+        for (int col = 0; col < SIZE; col++)
             this->board[row][col] = EMPTY;
 
     // adding the initial squares
-    this->board[3][4] = BLACK;
-    this->board[4][3] = BLACK;
-    this->board[3][3] = WHITE;
-    this->board[4][4] = WHITE;
+    this->board[SIZE/2 - 1][SIZE/2]     = BLACK;
+    this->board[SIZE/2][SIZE/2 - 1]     = BLACK;
+    this->board[SIZE/2 - 1][SIZE/2 - 1] = WHITE;
+    this->board[SIZE/2][SIZE/2]         = WHITE;
 }
 
 Table::~Table()

@@ -15,9 +15,9 @@ coor Table::cpuPlays()
 	int count = 0;
 	int legalMoves[60][2]; // to keep the legal moves
 
-	for (row = 0; row < 8; row++) // tries all the squares on the board if they are legal
+	for (row = 0; row < SIZE; row++) // tries all the squares on the board if they are legal
 	{
-		for (col = 0; col < 8; col++)
+		for (col = 0; col < SIZE; col++)
 		{
 			c.row = row;
 			c.col = col;

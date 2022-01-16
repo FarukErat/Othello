@@ -12,8 +12,11 @@ void Table::game()
     printBoard(); // printing the initial board
     coor c;
     int row, col;
-    while(true)
+    while (true)
     {
+        if (SIZE % 2 != 0 || SIZE <= 2)
+            break;
+
         if (this->turn == BLACK) // to indicate which side is playing
             cout << "\nBlack\n";
         else
@@ -60,9 +63,9 @@ void Table::game()
     int blackDisks = 0; // to count how many black and white squares there are
     int whiteDisks = 0;
 
-    for (int row = 0; row < 8; row++)
+    for (int row = 0; row < SIZE; row++)
     {
-        for (int col = 0; col < 8; col++)
+        for (int col = 0; col < SIZE; col++)
         {
             if (this->board[row][col] == BLACK)
                 blackDisks++;

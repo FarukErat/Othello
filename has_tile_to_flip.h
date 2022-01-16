@@ -10,9 +10,9 @@ bool Table::hasTileToFlip()
 {
     coor c;
     // this checks if there is any legal move for only one side
-	for (int row = 1; row <= 8; row++)
+	for (int row = 1; row <= SIZE; row++)
 	{
-		for (int col = 1; col <= 8; col++)
+		for (int col = 1; col <= SIZE; col++)
 		{
             c.row = row;
             c.col = col;

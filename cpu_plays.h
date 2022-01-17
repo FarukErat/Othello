@@ -36,11 +36,11 @@ coor Table::cpuPlays()
 	c.row = legalMoves[random][0];
 	c.col = legalMoves[random][1];
 
-	Sleep(1000);
+	sleep(1); // delays 1 second
 	// for a better game exp prints cpu's moves
 	std::cout << "row: " << c.row + 1 << std::endl;
 	std::cout << "col: " << c.col + 1 << std::endl; 
-	Sleep(1000);
+	sleep(1); // delays 1 second
 
 	return c;
 }

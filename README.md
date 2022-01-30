@@ -2,8 +2,8 @@
 A Simple Othello Game
 This game is playable against cpu. However, cpu makes completely random moves.
 
------------------------HOW TO PLAY-------------------------------------
-
+HOW TO PLAY
+--
 There is two sides which are black, which makes move the first, and white.
 The game begins with four disks placed in a square in the middle of the grid with the same-colored disks on a diagonal.
 Convention has this such that the dark-side-up disks are to the north-east and south-west (from both players' perspectives).
@@ -17,19 +17,18 @@ The player with the most pieces on the board at the end of the game wins.
 
 Here are some links to check out the rules better.
 
-https://en.wikipedia.org/wiki/Reversi#Rules
+[Wikipedia](https://en.wikipedia.org/wiki/Reversi#Rules)<br>
+[World Othello](https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english)
 
-https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english
 
-
-------------------------------BUGS------------------------------
-
+BUGS
+--
 1) It ends the game, even though the game is not over. (generally)
 2) The turn does not change, even when supposed to. (a bit often)
 3) It flips some illegal tiles. (rarely)
 
 
------------------------------NEEDED-----------------------------
-
+NEEDED
+--
 The biggest drawback of this program is GUI.
 It is played over terminal.

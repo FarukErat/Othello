@@ -1,6 +1,6 @@
 #pragma once
 
-#include "table.h"
+#include "table.hpp"
 /**
  * @param move: coordinates of the moves
  * @return nothing

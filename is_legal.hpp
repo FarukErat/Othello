@@ -1,7 +1,7 @@
 #pragma once
 
-#include "table.h"
-#include "is_on_board.h"
+#include "table.hpp"
+#include "is_on_board.hpp"
 /**
  * @param c: coordinate of the moves
  * @return boolean

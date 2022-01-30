@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "table.hpp"
+#include "othello.hpp"
 
 using namespace std;
 

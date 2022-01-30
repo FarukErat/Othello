@@ -91,12 +91,12 @@ Table::~Table()
     << endl;
 }
 
-#include "is_legal.h"
-#include "is_on_board.h"
-#include "has_tile_to_flip.h"
-#include "print_board.h"
-#include "user_plays.h"
-#include "cpu_plays.h"
-#include "flip_tiles.h"
-#include "game.h"
-#include "settings.h"
+#include "is_legal.hpp"
+#include "is_on_board.hpp"
+#include "has_tile_to_flip.hpp"
+#include "print_board.hpp"
+#include "user_plays.hpp"
+#include "cpu_plays.hpp"
+#include "flip_tiles.hpp"
+#include "game.hpp"
+#include "settings.hpp"

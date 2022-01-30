@@ -1,5 +1,23 @@
 #pragma once
 
+#include <ctime>     //to generate random numbers for cpu response
+#include <conio.h>   //for getch to keep the terminal still to see the result
+#include <cstdlib>   //for rand()
+
+// custom includes are at the bottom of the file
+
+#ifdef _WIN32
+#include <Windows.h> //for Sleep() and system("cls")
+void sleep(unsigned sec){
+    Sleep(sec * 1000);
+}
+#else
+#include <unistd.h>
+void sleep(unsigned sec){
+    usleep(sec * 1000);
+}
+#endif
+
 #define BLACK 'B'
 #define WHITE 'W'
 #define EMPTY '-'
@@ -72,3 +90,13 @@ Table::~Table()
     << "Have a good day!"
     << endl;
 }
+
+#include "is_legal.h"
+#include "is_on_board.h"
+#include "has_tile_to_flip.h"
+#include "print_board.h"
+#include "user_plays.h"
+#include "cpu_plays.h"
+#include "flip_tiles.h"
+#include "game.h"
+#include "settings.h"

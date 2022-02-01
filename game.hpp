@@ -8,15 +8,18 @@
 void Table::game()
 // the game is processed
 {
+    if (SIZE % 2 != 0 || SIZE <= 2)
+    {
+        cout << "The size of the board is not appropriate";
+        sleep(2);
+        return;
+    }
     settings(); // offering some game modes to the user
     printBoard(); // printing the initial board
     coor c;
     int row, col;
     while (true)
     {
-        if (SIZE % 2 != 0 || SIZE <= 2)
-            break;
-
         if (this->turn == BLACK) // to indicate which side is playing
             cout << "\nBlack\n";
         else

@@ -24,12 +24,12 @@ Here are some links to check out the rules better.
 
 BUGS
 --
-1) It ends the game, even though the game is not over. (generally) (FIXED)
-2) The turn does not change, even when supposed to. (a bit often) (FIXED)
-3) It flips some illegal tiles. (rarely)
+- [x] 1) It ends the game, even though the game is not over. (generally)
+- [x] 2) The turn does not change, even when supposed to. (a bit often)
+- [ ] 3) It flips some illegal tiles. (rarely)
 
 
 NEEDED
 --
-The biggest drawback of this program is GUI.
+- [ ] The biggest drawback of this program is GUI.
 It is played over terminal.

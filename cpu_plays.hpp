@@ -13,7 +13,8 @@ coor Table::cpuPlays()
 	int row, col;
 	int random;
 	int count = 0;
-	int legalMoves[60][2]; // to keep the legal moves
+	vector<int> rowes; // to keep the legal moves
+	vector<int> coles; // to keep the legal moves
 
 	for (row = 0; row < SIZE; row++) // tries all the squares on the board if they are legal
 	{
@@ -24,8 +25,8 @@ coor Table::cpuPlays()
 			if (isLegal(c))
 			{
 				// if they are legal, they are saved
-				legalMoves[count][0] = row;
-				legalMoves[count][1] = col;
+				rowes.push_back(row);
+				coles.push_back(col);
 				count++;
 			}
 		}
@@ -33,8 +34,8 @@ coor Table::cpuPlays()
 	srand(time(NULL));
 	random = rand() % count; // generates random numbers [0, count)
 
-	c.row = legalMoves[random][0];
-	c.col = legalMoves[random][1];
+	c.row = rowes.at(random);
+	c.col = coles.at(random);
 
 	sleep(1); // delays in second
 	// for a better game exp prints cpu's moves

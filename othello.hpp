@@ -6,12 +6,12 @@
 
 #ifdef _WIN32
 #include <Windows.h> //for Sleep() and system("cls")
-void sleep(unsigned sec){
+void sleep(float sec){
     Sleep(sec * 1000);
 }
 #else
 #include <unistd.h>
-void sleep(unsigned sec){
+void sleep(float sec){
     usleep(sec * 1000);
 }
 #endif

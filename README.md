@@ -24,8 +24,8 @@ Here are some links to check out the rules better.
 
 BUGS
 --
-1) It ends the game, even though the game is not over. (generally)
-2) The turn does not change, even when supposed to. (a bit often)
+1) It ends the game, even though the game is not over. (generally) (FIXED)
+2) The turn does not change, even when supposed to. (a bit often) (FIXED)
 3) It flips some illegal tiles. (rarely)
 
 

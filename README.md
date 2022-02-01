@@ -1,6 +1,7 @@
 # Othello/Reversi (UNSTABLE)
 A Simple Othello Game
-This game is playable against cpu. However, cpu makes completely random moves.
+This game is playable against cpu. However, cpu makes completely random moves.<br>
+Thus, its moves are usually not wisely done.
 
 HOW TO PLAY
 --

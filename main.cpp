@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    //! UNSTABLE, GAME ENDS WHEN NOT SUPPOSED TO
-    //? most likely caused by the use of has_tile_to_flip
+    //! It flips some illegal tiles. (rarely)
+    //? most likely caused by flip_tiles
     Table t;
     t.game();
 

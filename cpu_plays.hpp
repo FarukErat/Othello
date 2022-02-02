@@ -6,7 +6,7 @@
  * @return the coordinates cpu choose
  */
 coor Table::cpuPlays()
-//lets cpu play randomly
+// lets cpu play randomly
 {
 	coor c;
 
@@ -20,11 +20,10 @@ coor Table::cpuPlays()
 		{
 			c.row = row;
 			c.col = col;
-			if (isLegal(c))
-			{
-				// if they are legal, they are saved
-				moves.push_back(vector<int>{row, col});
-			}
+			// if they are legal, they are saved
+			for (auto dir : moveDirs)
+				if (isLegal(c, dir))
+					moves.push_back({ row, col });
 		}
 	}
 	srand(time(NULL));
@@ -33,10 +32,10 @@ coor Table::cpuPlays()
 	c.row = moves[random][0];
 	c.col = moves[random][1];
 
-	sleep(1); // delays in second
+	sleep(0.5); // delays in second
 	// for a better game exp prints cpu's moves
 	std::cout << "row: " << c.row + 1 << std::endl;
-	std::cout << "col: " << c.col + 1 << std::endl; 
+	std::cout << "col: " << c.col + 1 << std::endl;
 	sleep(1); // delays in second
 
 	return c;

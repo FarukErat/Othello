@@ -5,6 +5,7 @@
 Table::Table()
 {
     this->turn = BLACK;
+    this->oponent = WHITE;
 
     // creating a blank board
     for (int row = 0; row < SIZE; row++)

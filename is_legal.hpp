@@ -1,16 +1,14 @@
 #pragma once
 
 #include "table.hpp"
-#include "is_on_board.hpp"
 /**
  * @param c: coordinate of the moves
  * @return boolean
  */
-bool Table::isLegal(coor c)
+bool Table::isLegal(coor c, int dir[2])
 {
     coor temp;
 
-    int i;
     bool flip = false;
 
     if (!this->isOnBoard(c))
@@ -19,21 +17,30 @@ bool Table::isLegal(coor c)
         return false;
 
     for (auto dir : moveDirs)
-    {   // initializing temp for the for loop
-        temp.row = c.row + dir[0];
-        temp.col = c.col + dir[1];
-        for (int i = 1; isOnBoard(temp); i++)
-        {   //multiplying by "i" to move along the directions
+    {
+        flip = false;
+        for (int i = 1;; i++)
+        {
+            // multiplying by "i" to move along the directions
             temp.row = c.row + dir[0] * i;
             temp.col = c.col + dir[1] * i;
-            if (this->board[temp.row][temp.col] == EMPTY)
-            // if the square is empty, break
+
+            // if the square is not on the board, then it is not a legal move
+            if (!isOnBoard(temp))
                 break;
-            if (this->board[temp.row][temp.col] != this->turn)
-            {   // if the square is not the same as player's, assign flip true, then continue
+
+            // if the square is empty, break
+            if (this->board[temp.row][temp.col] == EMPTY)
+                break;
+
+            // if the square is not the same as player's, assign flip true, then continue
+            if (this->board[temp.row][temp.col] == this->oponent)
+            {
                 flip = true;
                 continue;
             }
+            // if the square is the current player's and at least one tile is flipped
+            // then it is a legal move
             if (this->board[temp.row][temp.col] == this->turn)
             {
                 if (flip)
@@ -42,7 +49,6 @@ bool Table::isLegal(coor c)
                     break;
             }
         }
-        flip = false;
     }
     return false;
 }

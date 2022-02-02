@@ -15,6 +15,7 @@ void Table::game()
         return;
     }
     settings(); // offering some game modes to the user
+    cout << " ";
     printBoard(); // printing the initial board
     coor c;
     int row, col;
@@ -37,33 +38,44 @@ void Table::game()
             c = userPlays();
 
         if (this->choice == 3)
-        
-            c = cpuPlays();
-        
-        flipTiles(c); // flips the legal squares
 
-        cout << "\n ";
+            c = cpuPlays();
+        for (auto dir : moveDirs)
+            flipTiles(c, dir); // flips the legal squares
 
         printBoard();
-        
+
         // switching the side when a move is done
         if (this->turn == BLACK)
+        {
             this->turn = WHITE;
+            this->oponent = BLACK;
+        }
         else
+        {
             this->turn = BLACK;
+            this->oponent = WHITE;
+        }
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
         {
             if (this->turn == BLACK)
+            {
                 this->turn = WHITE;
+                this->oponent = BLACK;
+            }
             else
+            {
                 this->turn = BLACK;
-            if (!hasTileToFlip())
+                this->oponent = WHITE;
+            }
             // even after switching, if there is no legal move, game is over
+            if (!hasTileToFlip())
                 break;
         }
     }
-    int blackDisks = 0; // to count how many black and white squares there are
+    // to count how many black and white squares there are
+    int blackDisks = 0;
     int whiteDisks = 0;
 
     for (int row = 0; row < SIZE; row++)

@@ -1,4 +1,4 @@
-# Othello/Reversi (UNSTABLE)
+# Othello/Reversi
 A Simple Othello Game
 This game is playable against cpu. However, cpu makes completely random moves.<br>
 Thus, its moves are usually not wisely done.
@@ -24,9 +24,7 @@ Here are some links to check out the rules better.
 
 BUGS
 --
-- [x] 1) It ends the game, even though the game is not over. (generally)
-- [x] 2) The turn does not change, even when supposed to. (a bit often)
-- [ ] 3) It flips some illegal tiles, which are on the edges and in the cross direction of moves done. (rarely)
+There is no bugs
 
 
 NEEDED

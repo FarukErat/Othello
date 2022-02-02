@@ -1,10 +1,5 @@
 #pragma once
 
-#include <ctime>     //to generate random numbers for cpu response
-#include <conio.h>   //for getch to keep the terminal still to see the result
-#include <cstdlib>   //for rand()
-#include <vector>    //for vector of valid moves of cpu
-
 #ifdef _WIN32
 #include <Windows.h> //for Sleep() and system("cls")
 void sleep(float sec){
@@ -17,29 +12,15 @@ void sleep(float sec){
 }
 #endif
 
-#define BLACK 'B'
-#define WHITE 'W'
-#define EMPTY '-'
-//the size is adjustable, but the size must be even and grater than 3
-#define SIZE 8
+#include <ctime>     //to generate random numbers for cpu response
+#include <conio.h>   //for getch to keep the terminal still to see the result
+#include <cstdlib>   //for rand()
+#include <vector>    //for vector of valid moves of cpu
 
-using namespace std;
-
-struct coor
-{
-	int col;
-	int row;
-};
-
-// Define all the possible directions in which a player's move can flip
-// their adversary's tiles as constant (0 – the current row/column, 
-// +1 – the next row/column, -1 – the previous row/column)
-int moveDirs[8][2] =
-{
-    {-1, -1},   {-1, 0},    {-1, 1},
-    {0, -1},                {0, 1},
-    {1, -1},    {1, 0},     {1, 1}
-};
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
 
 #include "table.hpp"
 #include "constructor.hpp"

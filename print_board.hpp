@@ -10,7 +10,6 @@ void Table::printBoard()
 {
     int row, col;
     system("cls");
-
     cout << " ";
     // printing the number for a better understanding of the coordinates
     for (row = 1; row <= SIZE; row++)

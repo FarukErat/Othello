@@ -1,7 +1,7 @@
 #pragma once
 
 //the size is adjustable, but the size must be even and grater than 3
-#define SIZE 4
+#define SIZE 8
 #define BLACK 'B'
 #define WHITE 'W'
 #define EMPTY '-'

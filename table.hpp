@@ -34,14 +34,14 @@ public:
     Table();
     ~Table();
     
-    bool isLegal(coor, int dir[2]);
+    bool isLegal(coor);
     bool isOnBoard(coor);
     bool hasTileToFlip();
 
     void settings();
     void game();
     void printBoard();
-    void flipTiles(coor, int dir[2]);
+    void flipTiles(coor);
 
     coor userPlays();
     coor cpuPlays();

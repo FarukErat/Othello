@@ -8,7 +8,8 @@
 void Table::settings()
 // sets the menu options
 {
-    cout << endl // greeting the users
+    // greeting the users
+    cout << endl
          << "Welcome to Othello Game" << endl
          << endl
          << "Enter your choice" << endl
@@ -18,6 +19,7 @@ void Table::settings()
          << "3 for cpu vs cpu" << endl
          << endl;
 
+    // getting the choice
     cin >> this->choice;
     // checking the choice
     if (this->choice != 1 && this->choice != 2 && this->choice != 3)
@@ -37,10 +39,10 @@ void Table::settings()
             exit(EXIT_FAILURE);
         }
 
-        if (this->userSide == 'b')
+        if (this->userSide == 'b' || this->userSide == 'B')
             this->userSide = BLACK;
 
-        if (this->userSide == 'w')
+        if (this->userSide == 'w' || this->userSide == 'W')
             this->userSide = WHITE;
     }
 }

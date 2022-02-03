@@ -2,14 +2,15 @@
 
 #include "table.hpp"
 /**
+ * @brief Prints the board with two nested for loops
  * @param nothing
  * @return nothing
  */
 void Table::printBoard()
-// this prints the board with two nested for loops
 {
     int row, col;
-    system("cls");
+    // clear the screen
+    //system("cls");
     cout << " ";
     // printing the number for a better understanding of the coordinates
     for (row = 1; row <= SIZE; row++)

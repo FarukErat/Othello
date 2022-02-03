@@ -3,8 +3,8 @@ A Simple Othello Game
 This game is playable against cpu. However, cpu makes completely random moves.<br>
 Thus, its moves are usually not wisely done.
 
-HOW TO PLAY
---
+## HOW TO PLAY
+
 There is two sides which are black, which makes move the first, and white.
 The game begins with four disks placed in a square in the middle of the grid with the same-colored disks on a diagonal.
 Convention has this such that the dark-side-up disks are to the north-east and south-west (from both players' perspectives).
@@ -22,12 +22,12 @@ Here are some links to check out the rules better.
 [World Othello](https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english)
 
 
-BUGS
---
+## BUGS
+
 There is no bugs
 
 
-NEEDED
---
+## NEEDED
+
 - [ ] The biggest drawback of this program is GUI.
 It is played over terminal.

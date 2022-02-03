@@ -2,11 +2,11 @@
 
 #include "table.hpp"
 /**
+ * @brief checks if the coordinate is in range of the size which is valid coordinates
  * @param c: coordinate of the moves
  * @return boolean
  */
 bool Table::isOnBoard(coor c)
-// checks if the coordinate is between 1 and 8 which is valid coordinate
 {
     if (c.row >= 0 && c.row < SIZE && c.col >= 0 && c.col < SIZE)
         return true;

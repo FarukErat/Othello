@@ -2,11 +2,13 @@
 
 #include "table.hpp"
 /**
+ * @brief Cpu tries all the squares,
+ * finds all the legal moves and stores the moves in a vector,
+ * chooses a random move from the vector and returns it.
  * @param nothing
  * @return the coordinates cpu choose
  */
 coor Table::cpuPlays()
-// lets cpu play randomly
 {
 	coor c;
 
@@ -21,9 +23,8 @@ coor Table::cpuPlays()
 			c.row = row;
 			c.col = col;
 			// if they are legal, they are saved
-			for (auto dir : moveDirs)
-				if (isLegal(c, dir))
-					moves.push_back({ row, col });
+			if (isLegal(c))
+				moves.push_back({row, col});
 		}
 	}
 	srand(time(NULL));

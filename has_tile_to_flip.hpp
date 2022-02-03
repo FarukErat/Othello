@@ -2,23 +2,22 @@
 
 #include "table.hpp"
 /**
+ * @brief Checks if a side has any tile to flip, any legal move.
  * @param none
  * @return boolean
  */
 bool Table::hasTileToFlip()
-// checks if a side has tile to flip
 {
 	coor c;
-	// this checks if there is any legal move for only one side
+	// all the squares are checked
 	for (int row = 0; row < SIZE; row++)
 	{
 		for (int col = 0; col < SIZE; col++)
 		{
 			c.row = row;
 			c.col = col;
-			for (auto dir : moveDirs)
-				if (isLegal(c, dir))
-					return true;
+			if (isLegal(c))
+				return true;
 		}
 	}
 	return false;

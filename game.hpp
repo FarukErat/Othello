@@ -2,11 +2,11 @@
 
 #include "table.hpp"
 /**
+ * @brief The game is processed here.
  * @param none
  * @return nothing
  */
 void Table::game()
-// the game is processed
 {
     if (SIZE % 2 != 0 || SIZE <= 2)
     {
@@ -14,17 +14,22 @@ void Table::game()
         sleep(2);
         return;
     }
-    settings(); // offering some game modes to the user
+    // offering some game modes to the user
+    settings();
+
+    // printing the initial board
     cout << " ";
-    printBoard(); // printing the initial board
+    printBoard();
     coor c;
     int row, col;
     while (true)
     {
-        if (this->turn == BLACK) // to indicate which side is playing
+        // print the side to indicate which side is playing
+        if (this->turn == BLACK)
             cout << "\nBlack\n";
         else
             cout << "\nWhite\n";
+
         // getting coordinates from the players
         if (this->choice == 1)
         {
@@ -38,10 +43,10 @@ void Table::game()
             c = userPlays();
 
         if (this->choice == 3)
-
             c = cpuPlays();
-        for (auto dir : moveDirs)
-            flipTiles(c, dir); // flips the legal squares
+
+        // legal tiles are flipped here
+        flipTiles(c);
 
         printBoard();
 
@@ -56,6 +61,7 @@ void Table::game()
             this->turn = BLACK;
             this->oponent = WHITE;
         }
+
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
         {

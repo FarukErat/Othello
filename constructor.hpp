@@ -4,6 +4,7 @@
 
 Table::Table()
 {
+    // player black starts the game
     this->turn = BLACK;
     this->oponent = WHITE;
 

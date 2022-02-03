@@ -24,7 +24,7 @@ Here are some links to check out the rules better.
 
 ## BUGS
 
-There is no bugs
+#### There is no bugs
 
 
 ## NEEDED

@@ -2,20 +2,22 @@
 
 #ifdef _WIN32
 #include <Windows.h> //for Sleep() and system("cls")
-void sleep(float sec){
+void sleep(float sec)
+{
     Sleep(sec * 1000);
 }
 #else
 #include <unistd.h>
-void sleep(float sec){
+void sleep(float sec)
+{
     usleep(sec * 1000);
 }
 #endif
 
-#include <ctime>     //to generate random numbers for cpu response
-#include <conio.h>   //for getch to keep the terminal still to see the result
-#include <cstdlib>   //for rand()
-#include <vector>    //for vector of valid moves of cpu
+#include <ctime>   //to generate random numbers for cpu response
+#include <conio.h> //for getch to keep the terminal still to see the result
+#include <cstdlib> //for rand()
+#include <vector>  //for vector of valid moves of cpu
 
 using std::cin;
 using std::cout;
@@ -34,3 +36,4 @@ using std::vector;
 #include "flip_tiles.hpp"
 #include "game.hpp"
 #include "settings.hpp"
+#include "marker.hpp"

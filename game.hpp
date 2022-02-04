@@ -14,12 +14,25 @@ void Table::game()
         sleep(2);
         return;
     }
+    if (BLACK == WHITE
+     || BLACK == EMPTY
+     || BLACK == LEGAL
+     || WHITE == EMPTY
+     || WHITE == LEGAL
+     || EMPTY == LEGAL)
+    {
+        cout << "The characters are not appropriate";
+        sleep(2);
+        return;
+    }
+
     // offering some game modes to the user
     settings();
+    cout << " ";
 
     // printing the initial board
-    cout << " ";
     printBoard();
+
     coor c;
     int row, col;
     while (true)
@@ -48,8 +61,6 @@ void Table::game()
         // legal tiles are flipped here
         flipTiles(c);
 
-        printBoard();
-
         // switching the side when a move is done
         if (this->turn == BLACK)
         {
@@ -61,6 +72,8 @@ void Table::game()
             this->turn = BLACK;
             this->oponent = WHITE;
         }
+
+        printBoard();
 
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
@@ -75,6 +88,8 @@ void Table::game()
                 this->turn = BLACK;
                 this->oponent = WHITE;
             }
+
+            printBoard();
             // even after switching, if there is no legal move, game is over
             if (!hasTileToFlip())
                 break;

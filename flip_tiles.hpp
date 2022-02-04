@@ -12,6 +12,7 @@ void Table::flipTiles(coor move)
     coor c, temp;
     bool flag = false;
 
+    // for each direction
     for (auto dir : moveDirs)
     {
         flag = false;

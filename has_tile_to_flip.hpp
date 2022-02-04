@@ -9,6 +9,7 @@
 bool Table::hasTileToFlip()
 {
 	coor c;
+	int legal = 0;
 	// all the squares are checked
 	for (int row = 0; row < SIZE; row++)
 	{
@@ -16,7 +17,7 @@ bool Table::hasTileToFlip()
 		{
 			c.row = row;
 			c.col = col;
-			if (isLegal(c))
+			if (this->board[row][col] == LEGAL)
 				return true;
 		}
 	}

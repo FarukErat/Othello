@@ -9,8 +9,7 @@ void Table::settings()
 // sets the menu options
 {
     // greeting the users
-    cout << endl
-         << "Welcome to Othello Game" << endl
+    cout << "Welcome to Othello Game" << endl
          << endl
          << "Enter your choice" << endl
          << endl
@@ -33,7 +32,7 @@ void Table::settings()
         cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
         cin >> this->userSide;
 
-        if (this->userSide != 'b' && this->userSide != 'w')
+        if (this->userSide != 'b' && this->userSide != 'w' && this->userSide != 'B' && this->userSide != 'W')
         {
             cout << "Invalid choice!!!";
             exit(EXIT_FAILURE);
@@ -45,4 +44,11 @@ void Table::settings()
         if (this->userSide == 'w' || this->userSide == 'W')
             this->userSide = WHITE;
     }
+    char guidance;
+    cout << endl << "Would you like guidance? (y/n): ";
+    cin >> guidance;
+    if (guidance == 'y' || guidance == 'Y')
+        this->marking = true;
+    else
+        this->marking = false;
 }

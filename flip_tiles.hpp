@@ -27,7 +27,7 @@ void Table::flipTiles(coor move)
                 break;
 
             // if the square is empty, the goal is not reached
-            if (this->board[c.row][c.col] == EMPTY)
+            if (this->board[c.row][c.col] == EMPTY || this->board[c.row][c.col] == LEGAL)
                 break;
 
             // flag changes to true if there is a tile to flip

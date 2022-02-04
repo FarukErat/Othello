@@ -17,7 +17,7 @@ coor Table::userPlays()
 
         c.row--;
         c.col--;
-        if (isLegal(c))
+        if (this->board[c.row][c.col] == LEGAL)
             return c;
 
         cout << "\nInvalid position!!!" << endl

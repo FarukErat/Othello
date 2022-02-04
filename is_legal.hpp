@@ -17,8 +17,10 @@ bool Table::isLegal(coor c)
         return false;
 
     // non-empty squares cannot be filled, thus it is not a legal move
-    if (this->board[c.row][c.col] != EMPTY)
+    if (this->board[c.row][c.col] != EMPTY && this->board[c.row][c.col] != LEGAL)
         return false;
+
+    // for each direction
     for (auto dir : moveDirs)
     {
         flip = false;
@@ -33,7 +35,7 @@ bool Table::isLegal(coor c)
                 break;
 
             // if the square is empty, break
-            if (this->board[temp.row][temp.col] == EMPTY)
+            if (this->board[temp.row][temp.col] == EMPTY || this->board[temp.row][temp.col] == LEGAL)
                 break;
 
             // if the square is not the same as player's, assign flip true, then continue

@@ -38,39 +38,39 @@ void Table::game()
     while (true)
     {
         // print the side to indicate which side is playing
-        if (this->turn == BLACK)
+        if (getTurn() == BLACK)
             cout << "\nBlack\n";
         else
             cout << "\nWhite\n";
 
         // getting coordinates from the players
-        if (this->choice == 1)
+        if (getChoice() == 1)
         {
-            if (this->turn == this->userSide)
+            if (getTurn() == getUserSide())
                 c = userPlays();
             else
                 c = cpuPlays();
         }
 
-        if (this->choice == 2)
+        if (getChoice() == 2)
             c = userPlays();
 
-        if (this->choice == 3)
+        if (getChoice() == 3)
             c = cpuPlays();
 
         // legal tiles are flipped here
         flipTiles(c);
 
         // switching the side when a move is done
-        if (this->turn == BLACK)
+        if (getTurn() == BLACK)
         {
-            this->turn = WHITE;
-            this->oponent = BLACK;
+            setTurn(WHITE);
+            setOponent(BLACK);
         }
         else
         {
-            this->turn = BLACK;
-            this->oponent = WHITE;
+            setTurn(BLACK);
+            setOponent(WHITE);
         }
 
         printBoard();
@@ -78,15 +78,15 @@ void Table::game()
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
         {
-            if (this->turn == BLACK)
+            if (getTurn() == BLACK)
             {
-                this->turn = WHITE;
-                this->oponent = BLACK;
+                setTurn(WHITE);
+                setOponent(BLACK);
             }
             else
             {
-                this->turn = BLACK;
-                this->oponent = WHITE;
+                setTurn(BLACK);
+                setOponent(WHITE);
             }
 
             printBoard();
@@ -103,10 +103,10 @@ void Table::game()
     {
         for (int col = 0; col < SIZE; col++)
         {
-            if (this->board[row][col] == BLACK)
+            if (getBoard(row, col) == BLACK)
                 blackDisks++;
 
-            if (this->board[row][col] == WHITE)
+            if (getBoard(row, col) == WHITE)
                 whiteDisks++;
         }
     }

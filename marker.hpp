@@ -14,8 +14,8 @@ void Table::marker()
     {
         for (int col = 0; col < SIZE; col++)
         {
-            if (this->board[row][col] == LEGAL)
-                this->board[row][col] = EMPTY;
+            if (getBoard(row, col) == LEGAL)
+                setBoard(row, col, EMPTY);
         }
     }
     /////////////////////////////////////////////////////

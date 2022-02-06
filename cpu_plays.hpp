@@ -23,7 +23,7 @@ coor Table::cpuPlays()
 			c.row = row;
 			c.col = col;
 			// if they are legal, they are saved
-			if (this->board[c.row][c.col] == LEGAL)
+			if (getBoard(c.row, c.col) == LEGAL)
 				moves.push_back({row, col});
 		}
 	}

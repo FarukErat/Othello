@@ -27,16 +27,16 @@ void Table::flipTiles(coor move)
                 break;
 
             // if the square is empty, the goal is not reached
-            if (this->board[c.row][c.col] == EMPTY || this->board[c.row][c.col] == LEGAL)
+            if (getBoard(c.row, c.col) == EMPTY || getBoard(c.row, c.col) == LEGAL)
                 break;
 
             // flag changes to true if there is a tile to flip
             // when the player's square is found, there must be at least one tile to flip
-            if (this->board[c.row][c.col] == this->oponent)
+            if (getBoard(c.row, c.col) == getOponent())
                 flag = true;
 
             // when a square in the same color as players is found
-            if (this->board[c.row][c.col] == this->turn)
+            if (getBoard(c.row, c.col) == getTurn())
             {
                 // if flag is not true, then it is not a legal move
                 if (!flag)
@@ -53,7 +53,7 @@ void Table::flipTiles(coor move)
                     while (temp.col != c.col)
                     {
                         // incrase the number by the delta
-                        board[temp.row][temp.col] = this->turn;
+                        setBoard(temp.row, temp.col, getTurn());
                         temp.col += dir[1];
                     }
                 }
@@ -65,7 +65,7 @@ void Table::flipTiles(coor move)
                     while (temp.row != c.row)
                     {
                         // incrase the number by the delta
-                        board[temp.row][temp.col] = this->turn;
+                        setBoard(temp.row, temp.col, getTurn());
                         temp.row += dir[0];
                     }
                 }
@@ -77,7 +77,7 @@ void Table::flipTiles(coor move)
                     while (temp.row != c.row && temp.col != c.col)
                     {
                         // incrase the numbers by the delta
-                        board[temp.row][temp.col] = this->turn;
+                        setBoard(temp.row, temp.col, getTurn());
                         temp.row += dir[0];
                         temp.col += dir[1];
                     }
@@ -87,5 +87,5 @@ void Table::flipTiles(coor move)
         }
     }
     // the chosen square is assigned to current player's color
-    this->board[move.row][move.col] = this->turn;
+    setBoard(move.row, move.col, getTurn());
 }

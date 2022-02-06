@@ -29,16 +29,16 @@ void Table::printBoard()
         {
             // in case user does not want guidiance
             // legal squares are hidden with EMPTY
-            if (!marking)
+            if (!getMarking())
             {
-                if (board[row][col] == LEGAL)
+                if (getBoard(row, col) == LEGAL)
                 {
                     cout << EMPTY << " ";
                     continue;
                 }
             }
             // printing the tiles
-            cout << board[row][col] << " ";
+            cout << getBoard(row, col) << " ";
         }
         cout << row + 1;
         cout << endl;

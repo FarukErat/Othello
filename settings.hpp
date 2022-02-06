@@ -2,6 +2,7 @@
 
 #include "table.hpp"
 /**
+ * @brief lets user set the table
  * @param nothing
  * @return nothing
  */
@@ -19,36 +20,41 @@ void Table::settings()
          << endl;
 
     // getting the choice
-    cin >> this->choice;
+    int choice;
+    cin >> choice;
+    setChoice(choice);
     // checking the choice
-    if (this->choice != 1 && this->choice != 2 && this->choice != 3)
+    if (getChoice() != 1 && getChoice() != 2 && getChoice() != 3)
     {
         cout << "Invalid choice!!!";
         exit(EXIT_FAILURE);
     }
     // in case of 1, we let the user choose the side
-    if (this->choice == 1)
+    if (getChoice() == 1)
     {
         cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
-        cin >> this->userSide;
+        char side;
+        cin >> side;
+        setUserSide(side);
 
-        if (this->userSide != 'b' && this->userSide != 'w' && this->userSide != 'B' && this->userSide != 'W')
+        if (getUserSide() == 'b' || getUserSide() == 'B')
+            setUserSide(BLACK);
+
+        else if (getUserSide() == 'w' || getUserSide() == 'W')
+            setUserSide(WHITE);
+
+        else
         {
             cout << "Invalid choice!!!";
             exit(EXIT_FAILURE);
         }
-
-        if (this->userSide == 'b' || this->userSide == 'B')
-            this->userSide = BLACK;
-
-        if (this->userSide == 'w' || this->userSide == 'W')
-            this->userSide = WHITE;
     }
     char guidance;
-    cout << endl << "Would you like guidance? (y/n): ";
+    cout << endl
+         << "Would you like guidance? (y/n): ";
     cin >> guidance;
     if (guidance == 'y' || guidance == 'Y')
-        this->marking = true;
+        setMarking(true);
     else
-        this->marking = false;
+        setMarking(false);
 }

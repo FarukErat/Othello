@@ -1,11 +1,13 @@
 #pragma once
 
+// for Sleep() and system("cls")
 #ifdef _WIN32
-#include <Windows.h> //for Sleep() and system("cls")
+#include <Windows.h>
 void sleep(float sec)
 {
     Sleep(sec * 1000);
 }
+
 #else
 #include <unistd.h>
 void sleep(float sec)
@@ -14,10 +16,34 @@ void sleep(float sec)
 }
 #endif
 
-#include <ctime>   //to generate random numbers for cpu response
-#include <conio.h> //for getch to keep the terminal still to see the result
-#include <cstdlib> //for rand()
-#include <vector>  //for vector of valid moves of cpu
+#ifndef _IOSTREAM_
+#define _IOSTREAM_
+#include <iostream>
+#endif
+
+// to generate random numbers for cpu response
+#ifndef _CTIME_
+#define _CTIME_
+#include <ctime>
+#endif
+
+// for getch to keep the terminal still to see the result
+#ifndef _INC_CONIO
+#define _INC_CONIO
+#include <conio.h>
+#endif
+
+// for rand()
+#ifndef _CSTDLIB_
+#define _CSTDLIB_
+#include <cstdlib>
+#endif
+
+// for vector of valid moves of cpu
+#ifndef _VECTOR_
+#define _VECTOR_
+#include <vector>
+#endif
 
 using std::cin;
 using std::cout;

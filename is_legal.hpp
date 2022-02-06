@@ -17,7 +17,7 @@ bool Table::isLegal(coor c)
         return false;
 
     // non-empty squares cannot be filled, thus it is not a legal move
-    if (this->board[c.row][c.col] != EMPTY && this->board[c.row][c.col] != LEGAL)
+    if (getBoard(c.row, c.col) != EMPTY && getBoard(c.row, c.col) != LEGAL)
         return false;
 
     // for each direction
@@ -35,11 +35,11 @@ bool Table::isLegal(coor c)
                 break;
 
             // if the square is empty, break
-            if (this->board[temp.row][temp.col] == EMPTY || this->board[temp.row][temp.col] == LEGAL)
+            if (getBoard(temp.row, temp.col) == EMPTY || getBoard(temp.row, temp.col) == LEGAL)
                 break;
 
             // if the square is not the same as player's, assign flip true, then continue
-            if (this->board[temp.row][temp.col] == this->oponent)
+            if (getBoard(temp.row, temp.col) == getOponent())
             {
                 flip = true;
                 continue;
@@ -47,7 +47,7 @@ bool Table::isLegal(coor c)
 
             // if the square is the current player's and at least one tile is flipped
             // then it is a legal move
-            if (this->board[temp.row][temp.col] == this->turn)
+            if (getBoard(temp.row, temp.col) == getTurn())
             {
                 if (flip)
                     return true;

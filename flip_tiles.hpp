@@ -13,7 +13,7 @@ void Table::flipTiles(coor move)
     bool flag = false;
 
     // for each direction
-    for (auto dir : moveDirs)
+    for (auto dir : Table::dirs)
     {
         flag = false;
         for (int i = 1;; i++)
@@ -88,4 +88,5 @@ void Table::flipTiles(coor move)
     }
     // the chosen square is assigned to current player's color
     setBoard(move.row, move.col, getTurn());
+    Table::dirs.clear();
 }

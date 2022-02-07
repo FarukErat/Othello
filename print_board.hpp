@@ -8,9 +8,6 @@
  */
 void Table::printBoard()
 {
-    // at first the legal squares are marked
-    marker();
-
     int row, col;
     // clear the screen
     system("cls");

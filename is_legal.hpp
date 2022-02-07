@@ -11,7 +11,7 @@ bool Table::isLegal(coor c)
 {
     coor temp;
     bool flip = false;
-
+    bool legal = false;
     // if the coordinate is not on the board, then it is not a legal move
     if (!this->isOnBoard(c))
         return false;
@@ -21,7 +21,7 @@ bool Table::isLegal(coor c)
         return false;
 
     // for each direction
-    for (auto dir : moveDirs)
+    for (auto dir : DIRS)
     {
         flip = false;
         for (int i = 1;; i++)
@@ -50,12 +50,16 @@ bool Table::isLegal(coor c)
             if (getBoard(temp.row, temp.col) == getTurn())
             {
                 if (flip)
-                    return true;
+                {
+                    legal = true;
+                    flip = false;
+                    Table::dirs.push_back({dir[0], dir[1]});
+                    break;
+                }
                 else
                     break;
             }
         }
     }
-    // if the proccess makes it here, then it means there is no legal move
-    return false;
+    return legal;
 }

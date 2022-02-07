@@ -16,7 +16,7 @@ struct coor
 // Define all the possible directions in which a player's move can flip
 // their adversary's tiles as constant (0 – the current row/column,
 // +1 – the next row/column, -1 – the previous row/column)
-const int moveDirs[8][2] =
+const int DIRS[8][2] =
 {
     {-1, -1},   {-1, 0},    {-1, 1},
     {0, -1},                {0, 1},
@@ -34,6 +34,7 @@ private:
     char turn;
     char oponent;
     char userSide;
+	vector<vector<int>> dirs;
 
 public:
     // Constructor and destructor

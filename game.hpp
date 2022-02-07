@@ -14,12 +14,12 @@ void Table::game()
         sleep(2);
         return;
     }
-    if (BLACK == WHITE
-     || BLACK == EMPTY
-     || BLACK == LEGAL
-     || WHITE == EMPTY
-     || WHITE == LEGAL
-     || EMPTY == LEGAL)
+    if (BLACK == WHITE ||
+        BLACK == EMPTY ||
+        BLACK == LEGAL ||
+        WHITE == EMPTY ||
+        WHITE == LEGAL ||
+        EMPTY == LEGAL)
     {
         cout << "The characters are not appropriate";
         sleep(2);
@@ -30,13 +30,16 @@ void Table::game()
     settings();
     cout << " ";
 
-    // printing the initial board
-    printBoard();
-
     coor c;
     int row, col;
     while (true)
     {
+        marker();
+        printBoard();
+
+        if (!hasTileToFlip())
+            break;
+
         // print the side to indicate which side is playing
         if (getTurn() == BLACK)
             cout << "\nBlack\n";
@@ -44,6 +47,7 @@ void Table::game()
             cout << "\nWhite\n";
 
         // getting coordinates from the players
+        // if the choice is 1, user plays against computer
         if (getChoice() == 1)
         {
             if (getTurn() == getUserSide())
@@ -52,9 +56,11 @@ void Table::game()
                 c = cpuPlays();
         }
 
+        // if the choice is 2, user will play multiplayer
         if (getChoice() == 2)
             c = userPlays();
 
+        // if the choice is 3, only computer will play
         if (getChoice() == 3)
             c = cpuPlays();
 
@@ -73,7 +79,8 @@ void Table::game()
             setOponent(WHITE);
         }
 
-        printBoard();
+        // updating the legal tiles after changing the side
+        marker();
 
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
@@ -88,11 +95,8 @@ void Table::game()
                 setTurn(BLACK);
                 setOponent(WHITE);
             }
-
-            printBoard();
-            // even after switching, if there is no legal move, game is over
-            if (!hasTileToFlip())
-                break;
+            // updating the legal tiles after changing the side
+            marker();
         }
     }
     // to count how many black and white squares there are

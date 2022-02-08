@@ -88,5 +88,4 @@ void Table::flipTiles(coor move)
     }
     // the chosen square is assigned to current player's color
     setBoard(move.row, move.col, getTurn());
-    Table::dirs.clear();
 }

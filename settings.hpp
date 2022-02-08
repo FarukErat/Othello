@@ -7,7 +7,6 @@
  * @return nothing
  */
 void Table::settings()
-// sets the menu options
 {
     // greeting the users
     cout << "Welcome to Othello Game" << endl

@@ -34,7 +34,6 @@ private:
     char turn;
     char oponent;
     char userSide;
-    vector<vector<int>> dirs;
 
 public:
     // Constructor and destructor

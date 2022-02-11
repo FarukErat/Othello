@@ -5,7 +5,7 @@
 #define BLACK 'B'
 #define WHITE 'W'
 #define EMPTY '-'
-#define LEGAL '+'
+#define LEGAL 'x'
 
 struct coor
 {

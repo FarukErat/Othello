@@ -1,7 +1,8 @@
 # Othello/Reversi
 A Simple Othello Game
 This game is playable against cpu. However, cpu makes completely random moves.<br>
-Thus, its moves are usually not wisely done.
+Thus, its moves are usually not wisely done.<br>
+[Bugs](https://github.com/FarukErat/Othello/edit/main/README.md#how-to-play) and [Needed](https://github.com/FarukErat/Othello/edit/main/README.md#needed)
 
 ## HOW TO PLAY
 

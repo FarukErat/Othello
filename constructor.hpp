@@ -2,8 +2,10 @@
 
 #include "table.hpp"
 
-Table::Table()
+void Table::constructor()
 {
+    this->moveCount = -1;
+    
     // player black starts the game
     setTurn(BLACK);
     setOponent(WHITE);

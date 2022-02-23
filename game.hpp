@@ -32,6 +32,9 @@ void Table::game()
 
     coor c;
     int row, col;
+
+    int p = 0;
+    // the game starts
     while (true)
     {
         marker();
@@ -51,18 +54,32 @@ void Table::game()
         if (getChoice() == 1)
         {
             if (getTurn() == getUserSide())
+            {
                 c = userPlays();
+            }
             else
-                c = cpuPlays();
+            {
+                c = cpuPlays(0.5);
+            }
         }
 
         // if the choice is 2, user will play multiplayer
         if (getChoice() == 2)
+        {
             c = userPlays();
+        }
 
         // if the choice is 3, only computer will play
         if (getChoice() == 3)
-            c = cpuPlays();
+        {
+            c = cpuPlays(0.5);
+        }
+
+        // if the choice is 4, the game will load from a file
+        if (getChoice() == 4)
+        {
+            c = filePlays(0.5);
+        }
 
         // legal tiles are flipped here
         flipTiles(c);
@@ -95,8 +112,6 @@ void Table::game()
                 setTurn(BLACK);
                 setOponent(WHITE);
             }
-            // updating the legal tiles after changing the side
-            marker();
         }
     }
     // to count how many black and white squares there are
@@ -133,7 +148,21 @@ void Table::game()
              << "Black: " << blackDisks << endl
              << "White: " << whiteDisks;
     }
+    // ask the user if he wants to save it to a file
+    if (getChoice() != 4)
+    {
+        cout << "\n\nDo you want to save the game to a file? (y/n) ";
+        char choice;
+        cin >> choice;
+        if (choice == 'y')
+        {
+            cout << "Enter the file name: ";
+            string fileName;
+            cin >> fileName;
+            saveMoves(fileName);
+        }
+    }
 
-    cout << "\n\nPress any key to quit";
+    cout << "\nPress any key to quit";
     getch();
 }

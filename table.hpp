@@ -5,7 +5,7 @@
 #define BLACK 'B'
 #define WHITE 'W'
 #define EMPTY '-'
-#define LEGAL 'x'
+#define LEGAL '+'
 
 struct coor
 {
@@ -28,22 +28,24 @@ const int DIRS[8][2] =
 class Table
 {
 private:
+    vector<coor> moves;
     char board[SIZE][SIZE];
     bool marking;
     int choice;
+    int moveCount;
     char turn;
     char oponent;
     char userSide;
 
 public:
-    // Constructor and destructor
+    // Constructor
     Table();
-    ~Table();
 
     // bool return type functions
     bool hasTileToFlip();
     bool isLegal(coor);
     bool isOnBoard(coor);
+    bool checkFile();
 
     // void return type functions
     void settings();
@@ -51,17 +53,24 @@ public:
     void printBoard();
     void flipTiles(coor);
     void marker();
+    void saveMoves(string);
+    void constructor();
 
     // int coor(user-defined) type functions
     coor userPlays();
-    coor cpuPlays();
+    coor randomMoves();
+    coor cpuPlays(float delay = 0);
+    coor fileMoves();
+    coor filePlays(float delay = 0);
+    
+    vector<coor> loadFromFile(string);
 
     // getter functions
     char getBoard(int row, int col);
     bool getMarking();
     int getChoice();
     char getTurn();
-    char getOponent();
+    char getOpponent();
     char getUserSide();
 
     // setter functions
@@ -72,6 +81,11 @@ public:
     void setOponent(char);
     void setUserSide(char);
 };
+
+Table::Table()
+{
+    constructor();
+}
 
 char Table::getBoard(int row, int col)
 {
@@ -89,7 +103,7 @@ char Table::getTurn()
 {
     return this->turn;
 }
-char Table::getOponent()
+char Table::getOpponent()
 {
     return this->oponent;
 }

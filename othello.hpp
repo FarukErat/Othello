@@ -36,7 +36,6 @@ using namespace std;
 #include "table.hpp"
 #include "constructor.hpp"
 #include "is_legal.hpp"
-#include "is_on_board.hpp"
 #include "has_tile_to_flip.hpp"
 #include "print_board.hpp"
 #include "user_plays.hpp"

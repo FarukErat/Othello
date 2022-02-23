@@ -39,7 +39,7 @@ bool Table::isLegal(coor c)
                 break;
 
             // if the square is not the same as player's, assign flip true, then continue
-            if (getBoard(temp.row, temp.col) == getOponent())
+            if (getBoard(temp.row, temp.col) == getOpponent())
             {
                 flip = true;
                 continue;

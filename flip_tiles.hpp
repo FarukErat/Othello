@@ -10,12 +10,13 @@
 void Table::flipTiles(coor move)
 {
     coor c, temp;
-    bool flag = false;
+    bool isFlipped = false;
+    bool isValid = false;
 
     // for each direction
     for (auto dir : DIRS)
     {
-        flag = false;
+        isFlipped = false;
         for (int i = 1;; i++)
         {
             // multiplying by 'i' to move along the directions
@@ -30,17 +31,18 @@ void Table::flipTiles(coor move)
             if (getBoard(c.row, c.col) == EMPTY || getBoard(c.row, c.col) == LEGAL)
                 break;
 
-            // flag changes to true if there is a tile to flip
+            // isFlipped changes to true if there is a tile to flip
             // when the player's square is found, there must be at least one tile to flip
-            if (getBoard(c.row, c.col) == getOponent())
-                flag = true;
+            if (getBoard(c.row, c.col) == getOpponent())
+                isFlipped = true;
 
             // when a square in the same color as players is found
             if (getBoard(c.row, c.col) == getTurn())
             {
-                // if flag is not true, then it is not a legal move
-                if (!flag)
+                // if isFlipped is not true, then it is not a legal move
+                if (!isFlipped)
                     break;
+                isValid = true;
 
                 // temp.row and temp.col are assigned the number along the legal direction
                 temp.row = move.row + dir[0];
@@ -86,6 +88,16 @@ void Table::flipTiles(coor move)
             }
         }
     }
-    // the chosen square is assigned to current player's color
-    setBoard(move.row, move.col, getTurn());
+    if (isValid)
+    {
+        this->moves.push_back(move);
+        // the chosen square is assigned to current player's color
+        setBoard(move.row, move.col, getTurn());
+    }
+    else
+    {
+        cout << "Illegal move" << endl;
+        sleep(2);
+        exit(EXIT_FAILURE);
+    }
 }

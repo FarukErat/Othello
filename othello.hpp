@@ -16,7 +16,12 @@ void sleep(float sec)
 }
 #endif
 
+// for input and output
 #include <iostream>
+// to deal with files
+#include <fstream>
+// to deal with strings
+#include <string>
 // to generate random numbers for cpu response
 #include <ctime>
 // for getch to keep the terminal still to see the result
@@ -26,21 +31,21 @@ void sleep(float sec)
 // for vector of valid moves of cpu
 #include <vector>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::vector;
+using namespace std;
 
 #include "table.hpp"
 #include "constructor.hpp"
-#include "destructor.hpp"
 #include "is_legal.hpp"
 #include "is_on_board.hpp"
 #include "has_tile_to_flip.hpp"
 #include "print_board.hpp"
 #include "user_plays.hpp"
-#include "cpu_plays.hpp"
+#include "random_moves.hpp"
 #include "flip_tiles.hpp"
 #include "game.hpp"
 #include "settings.hpp"
 #include "marker.hpp"
+#include "save_moves.hpp"
+#include "load_from_file.hpp"
+#include "file_moves.hpp"
+#include "check_file.hpp"

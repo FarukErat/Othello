@@ -15,6 +15,7 @@ coor Table::userPlays()
         cout << "row and col\n";
         cin >> c.row >> c.col;
 
+        // to match the index of the array
         c.row--;
         c.col--;
         if (getBoard(c.row, c.col) == LEGAL)

@@ -10,29 +10,20 @@
  */
 coor Table::randomMoves()
 {
-	coor c;
-
-	int row, col;
 	int random;
 	vector<vector<int>> moves;
-
-	for (row = 0; row < SIZE; row++) // tries all the squares on the board if they are legal
+	for (int row = 0; row < SIZE; row++) // tries all the squares on the board if they are legal
 	{
-		for (col = 0; col < SIZE; col++)
+		for (int col = 0; col < SIZE; col++)
 		{
-			c.row = row;
-			c.col = col;
 			// if they are legal, they are saved
-			if (getBoard(c.row, c.col) == LEGAL)
+			if (getBoard(row, col) == LEGAL)
 				moves.push_back({row, col});
 		}
 	}
 	srand(time(NULL));
 	random = rand() % moves.size(); // generates random numbers [0, count)
-
-	c.row = moves[random][0];
-	c.col = moves[random][1];
-
+	coor c = { moves[random][0], moves[random][1] };
 	return c;
 }
 

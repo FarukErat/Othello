@@ -31,10 +31,10 @@ private:
     vector<coor> moves;
     char board[SIZE][SIZE];
     bool marking;
-    int choice;
+    int gameMode;
     int moveCount;
     char turn;
-    char oponent;
+    char opponent;
     char userSide;
 
 public:
@@ -68,7 +68,7 @@ public:
     // getter functions
     char getBoard(int row, int col);
     bool getMarking();
-    int getChoice();
+    int getGameMode();
     char getTurn();
     char getOpponent();
     char getUserSide();
@@ -76,9 +76,9 @@ public:
     // setter functions
     void setBoard(int row, int col, char value);
     void setMarking(bool);
-    void setChoice(int);
+    void setGameMode(int);
     void setTurn(char);
-    void setOponent(char);
+    void setOpponent(char);
     void setUserSide(char);
 };
 
@@ -89,15 +89,18 @@ Table::Table()
 
 char Table::getBoard(int row, int col)
 {
-    return this->board[row][col];
+    if(isOnBoard({row, col}))
+        return board[row][col];
+    else
+        return '\0';
 }
 bool Table::getMarking()
 {
     return this->marking;
 }
-int Table::getChoice()
+int Table::getGameMode()
 {
-    return this->choice;
+    return this->gameMode;
 }
 char Table::getTurn()
 {
@@ -105,7 +108,7 @@ char Table::getTurn()
 }
 char Table::getOpponent()
 {
-    return this->oponent;
+    return this->opponent;
 }
 char Table::getUserSide()
 {
@@ -114,23 +117,24 @@ char Table::getUserSide()
 
 void Table::setBoard(int row, int col, char value)
 {
-    this->board[row][col] = value;
+    if(isOnBoard({row, col}) && (value == BLACK || value == WHITE || value == EMPTY || value == LEGAL))
+        board[row][col] = value;
 }
 void Table::setMarking(bool m)
 {
     this->marking = m;
 }
-void Table::setChoice(int c)
+void Table::setGameMode(int c)
 {
-    this->choice = c;
+    this->gameMode = c;
 }
 void Table::setTurn(char t)
 {
     this->turn = t;
 }
-void Table::setOponent(char o)
+void Table::setOpponent(char o)
 {
-    this->oponent = o;
+    this->opponent = o;
 }
 void Table::setUserSide(char s)
 {

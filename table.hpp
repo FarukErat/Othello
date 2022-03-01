@@ -30,8 +30,8 @@ class Table
 private:
     vector<coor> moves;
     char board[SIZE][SIZE];
-    bool marking;
-    int gameMode;
+    bool marking = true;
+    int gameMode = 3;
     int moveCount;
     char turn;
     char opponent;

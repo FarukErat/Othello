@@ -8,14 +8,11 @@
  */
 bool Table::hasTileToFlip()
 {
-	coor c;
 	// all the squares are checked
 	for (int row = 0; row < SIZE; row++)
 	{
 		for (int col = 0; col < SIZE; col++)
 		{
-			c.row = row;
-			c.col = col;
 			if (getBoard(row, col) == LEGAL)
 				return true;
 		}

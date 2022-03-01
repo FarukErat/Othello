@@ -4,6 +4,7 @@
 
 coor Table::fileMoves()
 {
+	// returns moves from files
 	this->moveCount++;
 	return moves[moveCount];
 }

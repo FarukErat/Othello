@@ -11,6 +11,7 @@ void Table::flipTiles(coor move)
 {
     coor c, temp;
     bool isFlipped = false;
+    // valid move guard in case there is a problem with the isLegal function
     bool isValid = false;
 
     // for each direction

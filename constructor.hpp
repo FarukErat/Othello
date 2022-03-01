@@ -5,8 +5,6 @@
 void Table::constructor()
 {
     this->moveCount = -1;
-    setMarking(true);
-    setGameMode(3);
     
     // player black starts the game
     setTurn(BLACK);

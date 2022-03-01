@@ -30,11 +30,8 @@ void Table::game()
     settings();
     cout << " ";
 
-    coor c;
-    int row, col;
-
-    int p = 0;
     // the game starts
+    coor c;
     while (true)
     {
         marker();
@@ -51,7 +48,7 @@ void Table::game()
 
         // getting coordinates from the players
         // if the choice is 1, user plays against computer
-        if (getChoice() == 1)
+        if (getGameMode() == 1)
         {
             if (getTurn() == getUserSide())
             {
@@ -64,19 +61,19 @@ void Table::game()
         }
 
         // if the choice is 2, user will play multiplayer
-        if (getChoice() == 2)
+        if (getGameMode() == 2)
         {
             c = userPlays();
         }
 
         // if the choice is 3, only computer will play
-        if (getChoice() == 3)
+        if (getGameMode() == 3)
         {
             c = cpuPlays(0.5);
         }
 
         // if the choice is 4, the game will load from a file
-        if (getChoice() == 4)
+        if (getGameMode() == 4)
         {
             c = filePlays(0.5);
         }
@@ -88,12 +85,12 @@ void Table::game()
         if (getTurn() == BLACK)
         {
             setTurn(WHITE);
-            setOponent(BLACK);
+            setOpponent(BLACK);
         }
         else
         {
             setTurn(BLACK);
-            setOponent(WHITE);
+            setOpponent(WHITE);
         }
 
         // updating the legal tiles after changing the side
@@ -105,12 +102,12 @@ void Table::game()
             if (getTurn() == BLACK)
             {
                 setTurn(WHITE);
-                setOponent(BLACK);
+                setOpponent(BLACK);
             }
             else
             {
                 setTurn(BLACK);
-                setOponent(WHITE);
+                setOpponent(WHITE);
             }
         }
     }
@@ -149,12 +146,12 @@ void Table::game()
              << "White: " << whiteDisks;
     }
     // ask the user if he wants to save it to a file
-    if (getChoice() != 4)
+    if (getGameMode() != 4)
     {
         cout << "\n\nDo you want to save the game to a file? (y/n) ";
         char choice;
         cin >> choice;
-        if (choice == 'y')
+        if (choice == 'y' || choice == 'Y')
         {
             cout << "Enter the file name: ";
             string fileName;

@@ -22,16 +22,16 @@ void Table::settings()
     // getting the choice
     int choice;
     cin >> choice;
-    setChoice(choice);
+    setGameMode(choice);
     // checking the choice
-    if (getChoice() != 1 && getChoice() != 2 && getChoice() != 3 && getChoice() != 4)
+    if (getGameMode() != 1 && getGameMode() != 2 && getGameMode() != 3 && getGameMode() != 4)
     {
         cout << "Invalid choice" << endl;
         sleep(2);
         exit(0);
     }
     // in case of 1, we let the user choose the side
-    if (getChoice() == 1)
+    if (getGameMode() == 1)
     {
         cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
         char side;
@@ -50,12 +50,13 @@ void Table::settings()
             exit(EXIT_FAILURE);
         }
     }
-    if (getChoice() == 4)
+    if (getGameMode() == 4)
     {
         cout << "Enter the file name: ";
         string fileName;
         cin >> fileName;
         fstream file;
+        // open the file in read mode
         file.open(fileName, ios::in);
         if (!file.is_open())
         {
@@ -64,6 +65,7 @@ void Table::settings()
             exit(EXIT_FAILURE);
         }
         file.close();
+        // check if the file has valid data
         this->moves = loadFromFile(fileName);
         if (!checkFile())
         {

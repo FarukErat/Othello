@@ -23,7 +23,9 @@ coor Table::randomMoves()
 	}
 	srand(time(NULL));
 	random = rand() % moves.size(); // generates random numbers [0, count)
-	coor c = { moves[random][0], moves[random][1] };
+	coor c;
+	c.row = moves[random][0];
+	c.col = moves[random][1];
 	return c;
 }
 

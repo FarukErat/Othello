@@ -26,12 +26,10 @@ bool Table::checkFile()
         if (getTurn() == BLACK)
         {
             setTurn(WHITE);
-            setOpponent(BLACK);
         }
         else
         {
             setTurn(BLACK);
-            setOpponent(WHITE);
         }
         marker();
         // in case there is no legal move for the next user the side is switched
@@ -40,12 +38,10 @@ bool Table::checkFile()
             if (getTurn() == BLACK)
             {
                 setTurn(WHITE);
-                setOpponent(BLACK);
             }
             else
             {
                 setTurn(BLACK);
-                setOpponent(WHITE);
             }
             // updating the legal tiles after changing the side
             marker();

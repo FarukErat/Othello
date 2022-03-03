@@ -8,7 +8,6 @@ void Table::constructor()
     
     // player black starts the game
     setTurn(BLACK);
-    setOpponent(WHITE);
 
     // creating a blank board
     for (int row = 0; row < SIZE; row++)

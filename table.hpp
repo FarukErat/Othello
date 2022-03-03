@@ -62,7 +62,7 @@ public:
     coor cpuPlays(float delay = 0);
     coor fileMoves();
     coor filePlays(float delay = 0);
-    
+
     vector<coor> loadFromFile(string);
 
     // getter functions
@@ -78,7 +78,6 @@ public:
     void setMarking(bool);
     void setGameMode(int);
     void setTurn(char);
-    void setOpponent(char);
     void setUserSide(char);
 };
 
@@ -89,10 +88,17 @@ Table::Table()
 
 char Table::getBoard(int row, int col)
 {
-    if(isOnBoard({row, col}))
-        return board[row][col];
-    else
-        return '\0';
+    try
+    {
+        if (isOnBoard({row, col}))
+            return board[row][col];
+        else
+            throw "getBoard: Invalid row or column";
+    }
+    catch (const char *msg)
+    {
+        std::cerr << msg << '\n';
+    }
 }
 bool Table::getMarking()
 {
@@ -117,8 +123,20 @@ char Table::getUserSide()
 
 void Table::setBoard(int row, int col, char value)
 {
-    if(isOnBoard({row, col}) && (value == BLACK || value == WHITE || value == EMPTY || value == LEGAL))
-        board[row][col] = value;
+    try
+    {
+        if (isOnBoard({row, col}) && (value == BLACK ||
+                                      value == WHITE ||
+                                      value == EMPTY ||
+                                      value == LEGAL))
+            board[row][col] = value;
+        else
+            throw "setBoard: Invalid row or column or value";
+    }
+    catch (const char *msg)
+    {
+        std::cerr << msg << '\n';
+    }
 }
 void Table::setMarking(bool m)
 {
@@ -126,17 +144,51 @@ void Table::setMarking(bool m)
 }
 void Table::setGameMode(int c)
 {
-    this->gameMode = c;
+    try
+    {
+        if (c == 1 || c == 2 || c == 3 || c == 4)
+            this->gameMode = c;
+        else
+            throw "setGameMode: Invalid game mode";
+    }
+    catch (const char *msg)
+    {
+        std::cerr << msg << '\n';
+    }
 }
 void Table::setTurn(char t)
 {
-    this->turn = t;
-}
-void Table::setOpponent(char o)
-{
-    this->opponent = o;
+    try
+    {
+        if (t == BLACK)
+        {
+            this->turn = BLACK;
+            this->opponent = WHITE;
+        }
+        else if (t == WHITE)
+        {
+            this->turn = WHITE;
+            this->opponent = BLACK;
+        }
+        else
+            throw "setTurn: Invalid turn";
+    }
+    catch (const char *msg)
+    {
+        std::cerr << msg << '\n';
+    }
 }
 void Table::setUserSide(char s)
 {
-    this->userSide = s;
+    try
+    {
+        if (s == BLACK || s == WHITE)
+            this->userSide = s;
+        else
+            throw "setUserSide: Invalid side";
+    }
+    catch (const char *msg)
+    {
+        std::cerr << msg << '\n';
+    }
 }

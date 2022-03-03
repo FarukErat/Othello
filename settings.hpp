@@ -22,31 +22,38 @@ void Table::settings()
     // getting the choice
     int choice;
     cin >> choice;
-    setGameMode(choice);
     // checking the choice
-    if (getGameMode() != 1 && getGameMode() != 2 && getGameMode() != 3 && getGameMode() != 4)
+    try
     {
-        cout << "Invalid choice" << endl;
-        sleep(2);
-        exit(0);
+        if (choice != 1 && choice != 2 && choice != 3 && choice != 4)
+        {
+            throw "Invalid game mode";
+        }
     }
+    catch (const char* msg)
+    {
+        std::cerr << msg << '\n';
+        sleep(2);
+        exit(EXIT_FAILURE);
+    }
+    setGameMode(choice);
     // in case of 1, we let the user choose the side
     if (getGameMode() == 1)
     {
         cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
         char side;
         cin >> side;
-        setUserSide(side);
 
-        if (getUserSide() == 'b' || getUserSide() == 'B')
+        if (side == 'b' || side == 'B')
             setUserSide(BLACK);
 
-        else if (getUserSide() == 'w' || getUserSide() == 'W')
+        else if (side == 'w' || side == 'W')
             setUserSide(WHITE);
 
         else
         {
             cout << "Invalid choice!!!";
+            sleep(2);
             exit(EXIT_FAILURE);
         }
     }
@@ -57,19 +64,35 @@ void Table::settings()
         cin >> fileName;
         fstream file;
         // open the file in read mode
-        file.open(fileName, ios::in);
-        if (!file.is_open())
+        try
         {
-            cout << "File not found!!!";
+            file.open(fileName, ios::in);
+            if (!file.is_open())
+            {
+                throw "File not found";
+                sleep(2);
+                exit(EXIT_FAILURE);
+            }
+        }
+        catch (const char* msg)
+        {
+            std::cerr << msg << '\n';
             sleep(2);
             exit(EXIT_FAILURE);
         }
         file.close();
         // check if the file has valid data
         this->moves = loadFromFile(fileName);
-        if (!checkFile())
+        try
         {
-            cout << "The file is not valid";
+            if (!checkFile())
+            {
+                throw "Invalid file";
+            }
+        }
+        catch(const char* msg)
+        {
+            std::cerr << msg << '\n';
             sleep(2);
             exit(EXIT_FAILURE);
         }

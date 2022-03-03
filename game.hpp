@@ -85,12 +85,10 @@ void Table::game()
         if (getTurn() == BLACK)
         {
             setTurn(WHITE);
-            setOpponent(BLACK);
         }
         else
         {
             setTurn(BLACK);
-            setOpponent(WHITE);
         }
 
         // updating the legal tiles after changing the side
@@ -102,12 +100,10 @@ void Table::game()
             if (getTurn() == BLACK)
             {
                 setTurn(WHITE);
-                setOpponent(BLACK);
             }
             else
             {
                 setTurn(BLACK);
-                setOpponent(WHITE);
             }
         }
     }

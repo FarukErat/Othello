@@ -89,16 +89,21 @@ void Table::flipTiles(coor move)
             }
         }
     }
-    if (isValid)
+    try
     {
-        this->moves.push_back(move);
-        // the chosen square is assigned to current player's color
-        setBoard(move.row, move.col, getTurn());
+        if (isValid)
+        {
+            this->moves.push_back(move);
+            // the chosen square is assigned to current player's color
+            setBoard(move.row, move.col, getTurn());
+        }
+        else
+        {
+            throw "flipTiles: Illegal move";
+        }
     }
-    else
+    catch (const char *msg)
     {
-        cout << "Illegal move" << endl;
-        sleep(2);
-        exit(EXIT_FAILURE);
+        std::cerr << msg << '\n';
     }
 }

@@ -31,7 +31,7 @@ void Table::marker()
             c.row = row;
             c.col = col;
             if (isLegal(c))
-                this->board[c.row][c.col] = LEGAL;
+                setBoard(c.row, c.col, LEGAL);
         }
     }
     /////////////////////////////////////////////////////

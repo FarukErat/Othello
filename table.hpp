@@ -11,6 +11,9 @@ struct coor
 {
     int col;
     int row;
+    // this struct can be defined with its values initialized
+    // if no parameter passed, the default value is 0
+    coor(int c = 0, int r = 0) : col(c), row(r) {}
 };
 
 // Define all the possible directions in which a player's move can flip
@@ -30,12 +33,12 @@ class Table
 private:
     vector<coor> moves;
     char board[SIZE][SIZE];
-    bool marking = true;
+    bool guidance = true;
     int gameMode = 3;
     int moveCount;
     char turn;
     char opponent;
-    char userSide;
+    char userSide = BLACK;
 
 public:
     // Constructor
@@ -67,7 +70,7 @@ public:
 
     // getter functions
     char getBoard(int row, int col);
-    bool getMarking();
+    bool getGuidance();
     int getGameMode();
     char getTurn();
     char getOpponent();
@@ -75,9 +78,10 @@ public:
 
     // setter functions
     void setBoard(int row, int col, char value);
-    void setMarking(bool);
+    void setGuidance(bool);
     void setGameMode(int);
     void setTurn(char);
+    void switchTurn();
     void setUserSide(char);
 };
 
@@ -100,9 +104,9 @@ char Table::getBoard(int row, int col)
         std::cerr << msg << '\n';
     }
 }
-bool Table::getMarking()
+bool Table::getGuidance()
 {
-    return this->marking;
+    return this->guidance;
 }
 int Table::getGameMode()
 {
@@ -138,9 +142,9 @@ void Table::setBoard(int row, int col, char value)
         std::cerr << msg << '\n';
     }
 }
-void Table::setMarking(bool m)
+void Table::setGuidance(bool m)
 {
-    this->marking = m;
+    this->guidance = m;
 }
 void Table::setGameMode(int c)
 {
@@ -178,6 +182,21 @@ void Table::setTurn(char t)
         std::cerr << msg << '\n';
     }
 }
+
+void Table::switchTurn()
+{
+    if (getTurn() == BLACK)
+    {
+        setTurn(WHITE);
+    }
+    else
+    {
+        setTurn(BLACK);
+    }
+    // update legal moves after switching turns
+    marker();
+}
+
 void Table::setUserSide(char s)
 {
     try

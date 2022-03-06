@@ -97,12 +97,12 @@ void Table::settings()
             exit(EXIT_FAILURE);
         }
     }
-    char guidance;
+    char guid;
     cout << endl
          << "Would you like guidance? (y/n): ";
-    cin >> guidance;
-    if (guidance == 'y' || guidance == 'Y')
-        setMarking(true);
+    cin >> guid;
+    if (guid == 'y' || guid == 'Y')
+        setGuidance(true);
     else
-        setMarking(false);
+        setGuidance(false);
 }

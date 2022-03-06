@@ -36,6 +36,6 @@ coor Table::cpuPlays(float delay)
 	// for a better game exp, prints cpu's moves
 	cout << "row: " << c.row + 1 << endl;
 	cout << "col: " << c.col + 1 << endl;
-	sleep(delay); // delays in second
+	sleep(delay / 2); // delays in second
 	return c;
 }

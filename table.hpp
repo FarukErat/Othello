@@ -14,6 +14,15 @@ struct coor
     // this struct can be defined with its values initialized
     // if no parameter passed, the default value is 0
     coor(int c = 0, int r = 0) : col(c), row(r) {}
+    // equavalent to the above
+    /*
+    coor(int c = 0, int r = 0)
+    {
+        col = c.col;
+        row = c.row;
+    }
+    */
+    // coor(const coor& c) : col(c.col), row(c.row) {}
 };
 
 // Define all the possible directions in which a player's move can flip

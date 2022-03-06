@@ -34,7 +34,6 @@ void Table::game()
     coor c;
     while (true)
     {
-        marker();
         printBoard();
 
         if (!hasTileToFlip())
@@ -82,64 +81,47 @@ void Table::game()
         flipTiles(c);
 
         // switching the side when a move is done
-        if (getTurn() == BLACK)
-        {
-            setTurn(WHITE);
-        }
-        else
-        {
-            setTurn(BLACK);
-        }
-
-        // updating the legal tiles after changing the side
-        marker();
+        switchTurn();
 
         // in case there is no legal move for the next user the side is switched
         if (!hasTileToFlip())
         {
-            if (getTurn() == BLACK)
-            {
-                setTurn(WHITE);
-            }
-            else
-            {
-                setTurn(BLACK);
-            }
+            switchTurn();
         }
     }
     // to count how many black and white squares there are
-    int blackDisks = 0;
-    int whiteDisks = 0;
+    int blacks = 0;
+    int whites = 0;
 
     for (int row = 0; row < SIZE; row++)
     {
         for (int col = 0; col < SIZE; col++)
         {
             if (getBoard(row, col) == BLACK)
-                blackDisks++;
+                blacks++;
 
             if (getBoard(row, col) == WHITE)
-                whiteDisks++;
+                whites++;
         }
     }
     cout << "\n\nG A M E   O V E R\n\n";
 
     // print the final result
 
-    if (blackDisks == whiteDisks)
+    if (blacks == whites)
         cout << "DRAW";
 
     else
     {
-        if (blackDisks > whiteDisks)
+        if (blacks > whites)
             cout << "Player black won." << endl;
 
         else
             cout << "Player white won." << endl;
 
         cout << "SCORE" << endl
-             << "Black: " << blackDisks << endl
-             << "White: " << whiteDisks;
+             << "Black: " << blacks << endl
+             << "White: " << whites;
     }
     // ask the user if he wants to save it to a file
     if (getGameMode() != 4)

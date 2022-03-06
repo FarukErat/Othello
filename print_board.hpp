@@ -14,8 +14,8 @@ void Table::printBoard()
     cout << " ";
 
     // printing the number for a better understanding of the coordinates
-    for (row = 1; row <= SIZE; row++)
-        cout << " " << row;
+    for (row = 0; row < SIZE; row++)
+        cout << " " << row + 1;
 
     cout << endl;
 
@@ -26,7 +26,7 @@ void Table::printBoard()
         {
             // in case user does not want guidiance
             // legal squares are hidden with EMPTY
-            if (!getMarking())
+            if (!getGuidance())
             {
                 if (getBoard(row, col) == LEGAL)
                 {
@@ -41,6 +41,6 @@ void Table::printBoard()
         cout << endl;
     }
     cout << " ";
-    for (row = 1; row <= SIZE; row++)
-        cout << " " << row;
+    for (row = 0; row < SIZE; row++)
+        cout << " " << row + 1;
 }

@@ -11,21 +11,22 @@ void Table::settings()
     // greeting the users
     cout << "Welcome to Othello Game" << endl
          << endl
-         << "Enter your choice" << endl
-         << endl
          << "1 for human vs cpu" << endl
          << "2 for human vs human" << endl
          << "3 for cpu vs cpu" << endl
          << "4 to load a game from a file" << endl
-         << endl;
+         << endl
+         << "Enter your choice: ";
 
     // getting the choice
-    int choice;
-    cin >> choice;
+    char temp;
+    temp = getche();
+    GameMode choice = (GameMode)stoi(&temp);
+    cout << endl;
     // checking the choice
     try
     {
-        if (choice != 1 && choice != 2 && choice != 3 && choice != 4)
+        if (choice != HUMAN_VS_HUMAN && choice != HUMAN_VS_CPU && choice != CPU_VS_CPU && choice != LOAD_GAME)
         {
             throw "Invalid game mode";
         }
@@ -36,13 +37,14 @@ void Table::settings()
         sleep(2);
         exit(EXIT_FAILURE);
     }
-    setGameMode(choice);
+    setGameMode((GameMode)choice);
     // in case of 1, we let the user choose the side
-    if (getGameMode() == 1)
+    if (getGameMode() == HUMAN_VS_CPU)
     {
-        cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE\n";
+        cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE: ";
         char side;
-        cin >> side;
+        side = getche();
+        cout << endl;
 
         if (side == 'b' || side == 'B')
             setUserSide(BLACK);
@@ -57,7 +59,7 @@ void Table::settings()
             exit(EXIT_FAILURE);
         }
     }
-    if (getGameMode() == 4)
+    if (getGameMode() == LOAD_GAME)
     {
         cout << "Enter the file name: ";
         string fileName;
@@ -98,9 +100,8 @@ void Table::settings()
         }
     }
     char guid;
-    cout << endl
-         << "Would you like guidance? (y/n): ";
-    cin >> guid;
+    cout << "Would you like guidance? (y/n): ";
+    guid = getche();
     if (guid == 'y' || guid == 'Y')
         setGuidance(true);
     else

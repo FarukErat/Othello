@@ -35,15 +35,34 @@ const int DIRS[8][2] =
     {1, -1},    {1, 0},     {1, 1}
 };
 
+/**
+ * @brief delays the program for a given amount of time in milliseconds
+ *
+ * @param milliseconds
+ */
+void sleep(unsigned milliseconds)
+{
+    clock_t time_end = clock() + milliseconds;
+    while (clock() < time_end); // wait until time_end
+}
+
+typedef enum
+{
+    HUMAN_VS_CPU = 1,
+    HUMAN_VS_HUMAN,
+    CPU_VS_CPU,
+    LOAD_GAME
+} GameMode;
+
 // getter and setter functions are defined in this file
 // other functions are defined in other header files
 class Table
 {
 private:
     vector<coor> moves;
+    GameMode gameMode = CPU_VS_CPU;
     char board[SIZE][SIZE];
     bool guidance = true;
-    int gameMode = 3;
     int moveCount;
     char turn;
     char opponent;
@@ -71,16 +90,16 @@ public:
     // int coor(user-defined) type functions
     coor userPlays();
     coor randomMoves();
-    coor cpuPlays(float delay = 0);
+    coor cpuPlays(unsigned miliseconds = 0);
     coor fileMoves();
-    coor filePlays(float delay = 0);
+    coor filePlays(unsigned miliseconds = 0);
 
     vector<coor> loadFromFile(string);
+    GameMode getGameMode();
 
     // getter functions
     char getBoard(int row, int col);
     bool getGuidance();
-    int getGameMode();
     char getTurn();
     char getOpponent();
     char getUserSide();
@@ -88,7 +107,7 @@ public:
     // setter functions
     void setBoard(int row, int col, char value);
     void setGuidance(bool);
-    void setGameMode(int);
+    void setGameMode(GameMode);
     void setTurn(char);
     void switchTurn();
     void setUserSide(char);

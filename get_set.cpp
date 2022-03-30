@@ -20,12 +20,13 @@ char Table::getBoard(int row, int col)
     {
         std::cerr << msg << '\n';
     }
+    return '\0';
 }
 bool Table::getGuidance()
 {
     return this->guidance;
 }
-int Table::getGameMode()
+GameMode Table::getGameMode()
 {
     return this->gameMode;
 }
@@ -63,12 +64,12 @@ void Table::setGuidance(bool m)
 {
     this->guidance = m;
 }
-void Table::setGameMode(int c)
+void Table::setGameMode(GameMode gm)
 {
     try
     {
-        if (c == 1 || c == 2 || c == 3 || c == 4)
-            this->gameMode = c;
+        if (gm == HUMAN_VS_HUMAN || gm == HUMAN_VS_CPU || gm == CPU_VS_CPU || gm == LOAD_GAME)
+            this->gameMode = gm;
         else
             throw "setGameMode: Invalid game mode";
     }

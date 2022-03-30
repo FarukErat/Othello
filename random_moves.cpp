@@ -29,13 +29,19 @@ coor Table::randomMoves()
 	return c;
 }
 
-coor Table::cpuPlays(float delay)
+/**
+ * @brief the parameter delay, delays in miliseconds
+ * 
+ * @param delayInMs 
+ * @return coor 
+ */
+coor Table::cpuPlays(unsigned delayInMs)
 {
 	coor c = randomMoves();
-	sleep(delay); // delays in second
+	sleep(delayInMs); // delays in second
 	// for a better game exp, prints cpu's moves
 	cout << "row: " << c.row + 1 << endl;
 	cout << "col: " << c.col + 1 << endl;
-	sleep(delay / 2); // delays in second
+	sleep(delayInMs / 2); // delays in second
 	return c;
 }

@@ -41,7 +41,7 @@ void Table::settings()
     // in case of 1, we let the user choose the side
     if (getGameMode() == HUMAN_VS_CPU)
     {
-        cout << "\nEnter 'b' to play BLACK, 'w' to play WHITE: ";
+        cout << "Enter 'b' to play BLACK, 'w' to play WHITE: ";
         char side;
         side = getche();
         cout << endl;

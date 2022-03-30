@@ -8,14 +8,19 @@ coor Table::fileMoves()
 	this->moveCount++;
 	return moves[moveCount];
 }
-
-coor Table::filePlays(float delay)
+/**
+ * @brief the parameter delay, delays in miliseconds
+ * 
+ * @param delayInMs 
+ * @return coor 
+ */
+coor Table::filePlays(unsigned delayInMs)
 {
 	coor c = fileMoves();
-    sleep(delay); // delays in second
+    sleep(delayInMs); // delays in second
 	// for a better game exp, prints cpu's moves
 	cout << "row: " << moves[moveCount].row + 1 << endl;
 	cout << "col: " << moves[moveCount].col + 1 << endl;
-	sleep(delay); // delays in second
+	sleep(delayInMs); // delays in second
     return c;
 }

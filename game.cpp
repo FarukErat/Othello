@@ -47,7 +47,7 @@ void Table::game()
 
         // getting coordinates from the players
         // if the choice is 1, user plays against computer
-        if (getGameMode() == 1)
+        if (getGameMode() == HUMAN_VS_CPU)
         {
             if (getTurn() == getUserSide())
             {
@@ -55,26 +55,26 @@ void Table::game()
             }
             else
             {
-                c = cpuPlays(0.5);
+                c = cpuPlays(500);
             }
         }
 
         // if the choice is 2, user will play multiplayer
-        if (getGameMode() == 2)
+        if (getGameMode() == HUMAN_VS_HUMAN)
         {
             c = userPlays();
         }
 
         // if the choice is 3, only computer will play
-        if (getGameMode() == 3)
+        if (getGameMode() == CPU_VS_CPU)
         {
-            c = cpuPlays(0.5);
+            c = cpuPlays(500);
         }
 
         // if the choice is 4, the game will load from a file
-        if (getGameMode() == 4)
+        if (getGameMode() == LOAD_GAME)
         {
-            c = filePlays(0.5);
+            c = filePlays(500);
         }
 
         // legal tiles are flipped here
@@ -124,7 +124,7 @@ void Table::game()
              << "White: " << whites;
     }
     // ask the user if he wants to save it to a file
-    if (getGameMode() != 4)
+    if (getGameMode() != LOAD_GAME)
     {
         cout << "\n\nDo you want to save the game to a file? (y/n) ";
         char choice;

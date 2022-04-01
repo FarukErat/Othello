@@ -14,11 +14,11 @@ char Table::getBoard(int row, int col)
         if (isOnBoard({row, col}))
             return board[row][col];
         else
-            throw "getBoard: Invalid row or column";
+            throw "getBoard: Invalid row or column\n";
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
     return '\0';
 }
@@ -53,11 +53,11 @@ void Table::setBoard(int row, int col, char value)
                                       value == LEGAL))
             board[row][col] = value;
         else
-            throw "setBoard: Invalid row or column or value";
+            throw "setBoard: Invalid row or column or value\n";
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
 }
 void Table::setGuidance(bool m)
@@ -71,11 +71,11 @@ void Table::setGameMode(GameMode gm)
         if (gm == HUMAN_VS_HUMAN || gm == HUMAN_VS_CPU || gm == CPU_VS_CPU || gm == LOAD_GAME)
             this->gameMode = gm;
         else
-            throw "setGameMode: Invalid game mode";
+            throw "setGameMode: Invalid game mode\n";
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
 }
 void Table::setTurn(char t)
@@ -93,11 +93,11 @@ void Table::setTurn(char t)
             this->opponent = BLACK;
         }
         else
-            throw "setTurn: Invalid turn";
+            throw "setTurn: Invalid turn\n";
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
 }
 
@@ -122,10 +122,10 @@ void Table::setUserSide(char s)
         if (s == BLACK || s == WHITE)
             this->userSide = s;
         else
-            throw "setUserSide: Invalid side";
+            throw "setUserSide: Invalid side\n";
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
 }

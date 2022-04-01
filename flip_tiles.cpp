@@ -101,11 +101,11 @@ void Table::flipTiles(coor move)
         }
         else
         {
-            throw "flipTiles: Illegal move";
+            throw "flipTiles: Illegal move\n";
         }
     }
     catch (const char *msg)
     {
-        std::cerr << msg << '\n';
+        std::cerr << msg;
     }
 }

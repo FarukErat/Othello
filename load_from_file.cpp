@@ -30,14 +30,14 @@ vector<coor> Table::loadFromFile(string fileName)
     ptr = strtok(text, ".");
     while (ptr != NULL)
     {
-        // use atoi() function to convert string to integer
+        // use stoi() function to convert string to integer
         c.row = stoi(ptr);
         // the delimiter is a comma (,)
         // because columns end with a comma
         ptr = strtok(NULL, ",");
         c.col = stoi(ptr);
-        ptr = strtok(NULL, ".");
         moves.push_back(c);
+        ptr = strtok(NULL, ".");
     }
     return moves;
 }

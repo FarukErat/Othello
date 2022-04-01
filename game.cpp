@@ -11,7 +11,7 @@ void Table::game()
     if (SIZE % 2 != 0 || SIZE <= 2)
     {
         cout << "The size of the board is not appropriate";
-        sleep(2);
+        sleep(2000);
         return;
     }
     if (BLACK == WHITE ||
@@ -22,7 +22,7 @@ void Table::game()
         EMPTY == LEGAL)
     {
         cout << "The characters are not appropriate";
-        sleep(2);
+        sleep(2000);
         return;
     }
 

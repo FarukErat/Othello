@@ -35,17 +35,6 @@ const int DIRS[8][2] =
     {1, -1},    {1, 0},     {1, 1}
 };
 
-/**
- * @brief delays the program for a given amount of time in milliseconds
- *
- * @param milliseconds
- */
-void sleep(unsigned milliseconds)
-{
-    clock_t time_end = clock() + milliseconds;
-    while (clock() < time_end); // wait until time_end
-}
-
 typedef enum
 {
     HUMAN_VS_CPU = 1,

@@ -28,13 +28,13 @@ void Table::settings()
     {
         if (choice != HUMAN_VS_HUMAN && choice != HUMAN_VS_CPU && choice != CPU_VS_CPU && choice != LOAD_GAME)
         {
-            throw "Invalid game mode";
+            throw "Invalid game mode\n";
         }
     }
     catch (const char* msg)
     {
-        std::cerr << msg << '\n';
-        sleep(2);
+        std::cerr << msg;
+        sleep(2000);
         exit(EXIT_FAILURE);
     }
     setGameMode((GameMode)choice);
@@ -55,7 +55,7 @@ void Table::settings()
         else
         {
             cout << "Invalid choice!!!";
-            sleep(2);
+            sleep(2000);
             exit(EXIT_FAILURE);
         }
     }
@@ -71,15 +71,15 @@ void Table::settings()
             file.open(fileName, ios::in);
             if (!file.is_open())
             {
-                throw "File not found";
-                sleep(2);
+                throw "File not found\n";
+                sleep(2000);
                 exit(EXIT_FAILURE);
             }
         }
         catch (const char* msg)
         {
-            std::cerr << msg << '\n';
-            sleep(2);
+            std::cerr << msg;
+            sleep(2000);
             exit(EXIT_FAILURE);
         }
         file.close();
@@ -89,13 +89,13 @@ void Table::settings()
         {
             if (!checkFile())
             {
-                throw "Invalid file";
+                throw "Invalid file\n";
             }
         }
         catch(const char* msg)
         {
-            std::cerr << msg << '\n';
-            sleep(2);
+            std::cerr << msg;
+            sleep(2000);
             exit(EXIT_FAILURE);
         }
     }

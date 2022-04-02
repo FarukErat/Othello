@@ -128,7 +128,7 @@ void Table::game()
     {
         cout << "\n\nDo you want to save the game to a file? (y/n) ";
         char choice;
-        cin >> choice;
+        choice = getche();
         if (choice == 'y' || choice == 'Y')
         {
             cout << "Enter the file name: ";

@@ -131,7 +131,7 @@ void Table::game()
         choice = getche();
         if (choice == 'y' || choice == 'Y')
         {
-            cout << "Enter the file name: ";
+            cout << "\nEnter the file name: ";
             string fileName;
             cin >> fileName;
             saveMoves(fileName);

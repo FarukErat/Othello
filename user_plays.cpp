@@ -1,10 +1,13 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief this takes coordinates
  * if they are not legal the user is warned and asked to enter again
- * @param nothing
+ *
+ * @param none
+ *
  * @return coordinates of the square the user choose
  */
 coor Table::userPlays()

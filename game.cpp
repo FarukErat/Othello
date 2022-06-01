@@ -1,9 +1,12 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief The game is processed here.
+ *
  * @param none
+ *
  * @return nothing
  */
 void Table::game()

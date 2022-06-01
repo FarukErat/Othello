@@ -1,9 +1,12 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief Legal moves are marked with LEGAL
+ *
  * @param none
+ *
  * @return nothing
  */
 void Table::marker()

@@ -1,11 +1,14 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief Cpu tries all the squares,
  * finds all the legal moves and stores the moves in a vector,
  * chooses a random move from the vector and returns it.
+ * 
  * @param nothing
+ * 
  * @return the coordinates cpu choose
  */
 coor Table::randomMoves()
@@ -31,9 +34,10 @@ coor Table::randomMoves()
 
 /**
  * @brief the parameter delay, delays in miliseconds
- * 
- * @param delayInMs 
- * @return coor 
+ *
+ * @param delayInMs
+ *
+ * @return coor
  */
 coor Table::cpuPlays(unsigned delayInMs)
 {

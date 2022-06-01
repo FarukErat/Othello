@@ -5,8 +5,7 @@
 coor Table::fileMoves()
 {
 	// returns moves from files
-	this->moveCount++;
-	return moves[moveCount];
+	return moves[moveCount++];
 }
 /**
  * @brief the parameter delay, delays in miliseconds

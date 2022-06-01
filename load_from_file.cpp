@@ -8,9 +8,12 @@
 // moves are saved row.column, format
 // so it is multiplied by 4
 #define LENGTH (SIZE * SIZE - 4) * 4
+
 /**
  * @brief get moves from file and return them as a vector
+ *
  * @param none
+ *
  * @return vector of moves from file
  */
 vector<coor> Table::loadFromFile(string fileName)

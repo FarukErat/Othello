@@ -22,22 +22,27 @@ char Table::getBoard(int row, int col)
     }
     return '\0';
 }
+
 bool Table::getGuidance()
 {
     return this->guidance;
 }
+
 GameMode Table::getGameMode()
 {
     return this->gameMode;
 }
+
 char Table::getTurn()
 {
     return this->turn;
 }
+
 char Table::getOpponent()
 {
     return this->opponent;
 }
+
 char Table::getUserSide()
 {
     return this->userSide;
@@ -60,10 +65,12 @@ void Table::setBoard(int row, int col, char value)
         std::cerr << msg;
     }
 }
+
 void Table::setGuidance(bool m)
 {
     this->guidance = m;
 }
+
 void Table::setGameMode(GameMode gm)
 {
     try
@@ -78,6 +85,7 @@ void Table::setGameMode(GameMode gm)
         std::cerr << msg;
     }
 }
+
 void Table::setTurn(char t)
 {
     try

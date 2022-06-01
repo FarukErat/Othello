@@ -2,10 +2,17 @@
 
 #include "table.hpp"
 
+/**
+ * @brief constructor is defined here to be able to reconstruct the board
+ *
+ * @param none
+ *
+ * @return nothing
+ */
 void Table::constructor()
 {
     this->moveCount = 0;
-    
+
     // player black starts the game
     setTurn(BLACK);
 

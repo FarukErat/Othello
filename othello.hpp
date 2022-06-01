@@ -37,7 +37,17 @@ void sleep(unsigned milliseconds)
 }
 */
 
-using namespace std;
+// using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::fstream;
+using std::ifstream;
+using std::ios;
+using std::ofstream;
+using std::stoi;
+using std::string;
+using std::vector;
 
 #include "table.hpp"
 #include "get_set.cpp"

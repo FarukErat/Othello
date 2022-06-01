@@ -1,10 +1,14 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief Checks if a side has any tile to flip, any legal move.
+ *
  * @param none
- * @return boolean
+ *
+ * @return true
+ * @return false
  */
 bool Table::hasTileToFlip()
 {

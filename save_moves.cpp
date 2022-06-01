@@ -2,6 +2,13 @@
 
 #include "table.hpp"
 
+/**
+ * @brief saves moves to a file in the format row.column,
+ *
+ * @param fileName
+ *
+ * @return nothing
+ */
 void Table::saveMoves(string fileName)
 {
     ofstream file;

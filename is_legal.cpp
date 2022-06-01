@@ -17,9 +17,12 @@ bool Table::isOnBoard(coor c)
 
 /**
  * @brief Checks if a move is legal in one direction.
+ *
  * @param c: coordinate of the moves
  * @param dir: direction
- * @return boolean
+ *
+ * @return true
+ * @return false
  */
 bool Table::isLegal(coor c)
 {

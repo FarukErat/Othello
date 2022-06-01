@@ -33,3 +33,6 @@ Here are some links to check out the rules better.
 
 - [ ] The biggest drawback of this program is GUI.
 It is played over terminal.
+
+## MORE
+[Othello](https://github.com/FarukErat/Notes_and_Tutorials/tree/main/Cpp/Othello_QT_QUI-main)

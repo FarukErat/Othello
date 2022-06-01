@@ -1,8 +1,4 @@
-#include <iostream>
-
 #include "othello.hpp"
-
-using namespace std;
 
 int main()
 {

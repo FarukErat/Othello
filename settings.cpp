@@ -1,9 +1,12 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief lets user set the table
- * @param nothing
+ *
+ * @param none
+ *
  * @return nothing
  */
 void Table::settings()
@@ -31,7 +34,7 @@ void Table::settings()
             throw "Invalid game mode\n";
         }
     }
-    catch (const char* msg)
+    catch (const char *msg)
     {
         std::cerr << msg;
         sleep(2000);
@@ -76,7 +79,7 @@ void Table::settings()
                 exit(EXIT_FAILURE);
             }
         }
-        catch (const char* msg)
+        catch (const char *msg)
         {
             std::cerr << msg;
             sleep(2000);
@@ -92,7 +95,7 @@ void Table::settings()
                 throw "Invalid file\n";
             }
         }
-        catch(const char* msg)
+        catch (const char *msg)
         {
             std::cerr << msg;
             sleep(2000);

@@ -1,9 +1,12 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief Prints the board with two nested for loops
- * @param nothing
+ *
+ * @param none
+ *
  * @return nothing
  */
 void Table::printBoard()

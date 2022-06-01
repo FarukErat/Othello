@@ -1,17 +1,20 @@
 #pragma once
 
 #include "table.hpp"
+
 /**
  * @brief When called, it flips the valid tiles in the direction of the move.
+ *
  * @param move: coordinates of the moves
  * @param dir: direction
+ *
  * @return nothing
  */
 void Table::flipTiles(coor move)
 {
     coor curr, toFlip;
     bool isFlipped = false;
-    // valid move guard in case there is a problem with the isLegal function
+    // valid move guard in case there is a problem with isLegal function
     bool isValid = false;
 
     // for each direction

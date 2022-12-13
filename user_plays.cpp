@@ -21,7 +21,7 @@ coor Table::userPlays()
         // to match the index of the array
         c.row--;
         c.col--;
-        if (getBoard(c.row, c.col) == LEGAL)
+        if (getBoard(c) == LEGAL)
             return c;
 
         cout << "\nInvalid position!!!" << endl

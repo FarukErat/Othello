@@ -20,7 +20,7 @@ coor Table::randomMoves()
 		for (int col = 0; col < SIZE; col++)
 		{
 			// if they are legal, they are saved
-			if (getBoard(row, col) == LEGAL)
+			if (getBoard({row, col}) == LEGAL)
 				moves.push_back({row, col});
 		}
 	}
@@ -41,7 +41,7 @@ coor Table::randomMoves()
  */
 coor Table::cpuPlays(unsigned delayInMs)
 {
-	coor c = randomMoves();
+	coor c(randomMoves());
 	sleep(delayInMs); // delays in second
 	// for a better game exp, prints cpu's moves
 	cout << "row: " << c.row + 1 << endl;

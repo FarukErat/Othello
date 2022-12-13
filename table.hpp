@@ -7,13 +7,13 @@
 #define EMPTY '-'
 #define LEGAL '+'
 
-struct coor
+class coor
 {
-    int col;
-    int row;
+public:
+    int row, col;
     // this struct can be defined with its values initialized
     // if no parameter passed, the default value is 0
-    coor(int c = 0, int r = 0) : col(c), row(r) {}
+    coor(int r = 0, int c = 0) : row(r), col(c) {}
     // equavalent to the above
     /*
     coor(int c = 0, int r = 0)
@@ -22,18 +22,19 @@ struct coor
         row = c.row;
     }
     */
-    // coor(const coor& c) : col(c.col), row(c.row) {}
+    // coor(const coor &c) : col(c.col), row(c.row) {}
+    void operator+=(const int dir[2])
+    {
+        row += dir[0];
+        col += dir[1];
+    }
 };
 
 // Define all the possible directions in which a player's move can flip
 // their adversary's tiles as constant (0 – the current row/column,
 // +1 – the next row/column, -1 – the previous row/column)
-const int DIRS[8][2] =
-{
-    {-1, -1},   {-1, 0},    {-1, 1},
-    {0, -1},                {0, 1},
-    {1, -1},    {1, 0},     {1, 1}
-};
+// left-up, up, right-up, left, right, left-down, down, right-down
+const int DIRS[8][2] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
 typedef enum
 {
@@ -87,14 +88,14 @@ public:
     GameMode getGameMode();
 
     // getter functions
-    char getBoard(int row, int col);
+    char getBoard(coor);
     bool getGuidance();
     char getTurn();
     char getOpponent();
     char getUserSide();
 
     // setter functions
-    void setBoard(int row, int col, char value);
+    void setBoard(coor, char value);
     void setGuidance(bool);
     void setGameMode(GameMode);
     void setTurn(char);

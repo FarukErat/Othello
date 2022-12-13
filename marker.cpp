@@ -17,24 +17,21 @@ void Table::marker()
     {
         for (int col = 0; col < SIZE; col++)
         {
-            if (getBoard(row, col) == LEGAL)
-                setBoard(row, col, EMPTY);
+            if (getBoard(coor(row, col)) == LEGAL)
+                setBoard({row, col}, EMPTY);
         }
     }
     /////////////////////////////////////////////////////
 
     // marks all the legal squares for the current player
     /////////////////////////////////////////////////////
-    coor c;
     // all the squares are checked
     for (int row = 0; row < SIZE; row++)
     {
         for (int col = 0; col < SIZE; col++)
         {
-            c.row = row;
-            c.col = col;
-            if (isLegal(c))
-                setBoard(c.row, c.col, LEGAL);
+            if (isLegal(coor(row, col)))
+                setBoard({row, col}, LEGAL);
         }
     }
     /////////////////////////////////////////////////////

@@ -31,14 +31,14 @@ void Table::printBoard()
             // legal squares are hidden with EMPTY
             if (!getGuidance())
             {
-                if (getBoard(row, col) == LEGAL)
+                if (getBoard({row, col}) == LEGAL)
                 {
                     cout << EMPTY << " ";
                     continue;
                 }
             }
             // printing the tiles
-            cout << getBoard(row, col) << " ";
+            cout << getBoard({row, col}) << " ";
         }
         cout << row + 1;
         cout << endl;

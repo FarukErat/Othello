@@ -17,7 +17,7 @@ bool Table::hasTileToFlip()
 	{
 		for (int col = 0; col < SIZE; col++)
 		{
-			if (getBoard(row, col) == LEGAL)
+			if (getBoard({row, col}) == LEGAL)
 				return true;
 		}
 	}

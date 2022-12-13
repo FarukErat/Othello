@@ -7,12 +7,12 @@ Table::Table()
     constructor();
 }
 
-char Table::getBoard(int row, int col)
+char Table::getBoard(coor c)
 {
     try
     {
-        if (isOnBoard({row, col}))
-            return board[row][col];
+        if (isOnBoard(c))
+            return board[c.row][c.col];
         else
             throw "getBoard: Invalid row or column\n";
     }
@@ -48,15 +48,15 @@ char Table::getUserSide()
     return this->userSide;
 }
 
-void Table::setBoard(int row, int col, char value)
+void Table::setBoard(coor c, char value)
 {
     try
     {
-        if (isOnBoard({row, col}) && (value == BLACK ||
+        if (isOnBoard(c) && (value == BLACK ||
                                       value == WHITE ||
                                       value == EMPTY ||
                                       value == LEGAL))
-            board[row][col] = value;
+            board[c.row][c.col] = value;
         else
             throw "setBoard: Invalid row or column or value\n";
     }

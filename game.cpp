@@ -100,10 +100,10 @@ void Table::game()
     {
         for (int col = 0; col < SIZE; col++)
         {
-            if (getBoard(row, col) == BLACK)
+            if (getBoard({row, col}) == BLACK)
                 blacks++;
 
-            if (getBoard(row, col) == WHITE)
+            if (getBoard({row, col}) == WHITE)
                 whites++;
         }
     }

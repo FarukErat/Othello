@@ -87,7 +87,7 @@ private:
     void saveMovesToFile(const char* fileName);
     void loadMovesFromFile(const char* fileName);
     Position getStoredMove(unsigned delayInMs);
-    bool validateStoredMoves();
+    bool isStoredMovesValid();
     void newGame();
     void loadGame();
 
@@ -378,9 +378,11 @@ void Table::displaySettings() {
                 cout << "\nError opening file";
                 exit(1);
             }
+            file.close();
             loadMovesFromFile(fileName);
-            if (!validateStoredMoves()) {
+            if (!isStoredMovesValid()) {
                 cout << "\nFile is corrupted";
+                exit(1);
             }
         }
         break;
@@ -519,7 +521,7 @@ Position Table::getStoredMove(unsigned delayInMs) {
     return p;
 }
 
-bool Table::validateStoredMoves() {
+bool Table::isStoredMovesValid() {
     if (moves.size() == 0) {
         return false;
     }
@@ -529,6 +531,9 @@ bool Table::validateStoredMoves() {
             break;
         }
         move = moves[moveCount++];
+        if (!isLegal(move)) {
+            return false;
+        }
         flipTiles(move);
         switchTurn();
         if (!hasTileToFlip()) {

@@ -308,6 +308,8 @@ void Table::flipTiles(Position move) {
 }
 
 Position Table::getRandomMove() {
+    srand(time(NULL));
+
     vector<Position> legalMoves;
     for (int row = 0; row < BOARD_SIZE; row++) {
         for (int col = 0; col < BOARD_SIZE; col++) {
@@ -316,7 +318,134 @@ Position Table::getRandomMove() {
             }
         }
     }
-    srand(time(NULL));
+
+    vector<Position> movesToCorners;
+    for (int i = 0; i < legalMoves.size(); i++) {
+        // upper left
+        if (legalMoves[i].row == 0 && legalMoves[i].col == 0) {
+            movesToCorners.push_back(legalMoves[i]);
+            continue;
+        }
+        // upper right
+        if (legalMoves[i].row == 0 && legalMoves[i].col == BOARD_SIZE - 1) {
+            movesToCorners.push_back(legalMoves[i]);
+            continue;
+        }
+        // lower right
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == BOARD_SIZE - 1) {
+            movesToCorners.push_back(legalMoves[i]);
+            continue;
+        }
+        // lower left
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == 0) {
+            movesToCorners.push_back(legalMoves[i]);
+        }
+    }
+    if (movesToCorners.size() != 0) {
+        return movesToCorners[rand() % movesToCorners.size()];
+    }
+
+    // remove the moves on X squares
+    for (int i = 0; i < legalMoves.size() && legalMoves.size() > 1; i++) {
+        // upper left
+        if (legalMoves[i].row == 1 && legalMoves[i].col == 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // upper right
+        if (legalMoves[i].row == 1 && legalMoves[i].col == BOARD_SIZE - 2) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower right
+        if (legalMoves[i].row == BOARD_SIZE - 2 && legalMoves[i].col == BOARD_SIZE - 2) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower left
+        if (legalMoves[i].row == BOARD_SIZE - 2 && legalMoves[i].col == 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+        }
+    }
+
+    // remove the moves on C squares
+    for (int i = 0; i < legalMoves.size() && legalMoves.size() > 1; i++) {
+        // upper left
+        if (legalMoves[i].row == 0 && legalMoves[i].col == 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == 1 && legalMoves[i].col == 0) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // upper right
+        if (legalMoves[i].row == 0 && legalMoves[i].col == BOARD_SIZE - 2) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == 1 && legalMoves[i].col == BOARD_SIZE - 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower right
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == BOARD_SIZE - 2) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == BOARD_SIZE - 2 && legalMoves[i].col == BOARD_SIZE - 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower left
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == BOARD_SIZE - 2 && legalMoves[i].col == 0) {
+            legalMoves.erase(legalMoves.begin() + i);
+        }
+    }
+
+    // remove the moves on B squares
+    for (int i = 0; i < legalMoves.size() && legalMoves.size() > 1; i++) {
+        // upper left
+        if (legalMoves[i].row == 0 && legalMoves[i].col == 3) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == 3 && legalMoves[i].col == 0) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // upper right
+        if (legalMoves[i].row == 0 && legalMoves[i].col == BOARD_SIZE - 4) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == 3 && legalMoves[i].col == BOARD_SIZE - 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower right
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == BOARD_SIZE - 4) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == BOARD_SIZE - 4 && legalMoves[i].col == BOARD_SIZE - 1) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        // lower left
+        if (legalMoves[i].row == BOARD_SIZE - 1 && legalMoves[i].col == 3) {
+            legalMoves.erase(legalMoves.begin() + i);
+            continue;
+        }
+        if (legalMoves[i].row == BOARD_SIZE - 4 && legalMoves[i].col == 0) {
+            legalMoves.erase(legalMoves.begin() + i);
+        }
+    }
+
     return legalMoves[rand() % legalMoves.size()];
 }
 
